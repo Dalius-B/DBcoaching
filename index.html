@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DB Coaching — 12-Week Transformation Program</title>
+<meta name="description" content="Online personal coaching for people who keep starting over. Build the consistency to train, eat right and transform your body — in 12 weeks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0A0A0A;
+    --white: #FAFAFA;
+    --gold: #B8960C;
+    --gold-light: #D4AE2A;
+    --gray-100: #F4F4F4;
+    --gray-200: #E0E0E0;
+    --gray-500: #6B7280;
+    --gray-800: #1E1E1E;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2.5rem;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(184,150,12,0.2);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 0.06em;
+    color: var(--white);
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-cta {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 0.6rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(184,150,12,0.04) 100%);
+    pointer-events: none;
+  }
+
+  .hero-text {
+    padding: 5rem 3rem 5rem 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-headline .gold { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(250,250,250,0.65);
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-sub strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .hero-note {
+    font-size: 0.8rem;
+    color: rgba(250,250,250,0.35);
+    font-weight: 300;
+  }
+
+  .hero-image {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(20%) contrast(1.05);
+  }
+
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--black) 0%, transparent 30%),
+                linear-gradient(to top, var(--black) 0%, transparent 20%);
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 3rem;
+    left: -2rem;
+    z-index: 3;
+    display: flex;
+    gap: 0;
+  }
+
+  .hero-stat {
+    background: var(--gold);
+    padding: 1rem 1.5rem;
+    text-align: center;
+    border-right: 1px solid rgba(10,10,10,0.2);
+  }
+
+  .hero-stat:last-child { border-right: none; }
+
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--black);
+    line-height: 1;
+    display: block;
+  }
+
+  .hero-stat-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(10,10,10,0.7);
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ── PROBLEM ── */
+  .problem {
+    background: var(--black);
+    padding: 6rem 5rem;
+    border-top: 1px solid rgba(184,150,12,0.15);
+  }
+
+  .problem-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .problem-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  .problem-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .problem-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    border: 0.5px solid rgba(250,250,250,0.08);
+    background: rgba(250,250,250,0.02);
+  }
+
+  .problem-item::before {
+    content: '—';
+    color: var(--gold);
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .problem-item p {
+    font-size: 0.95rem;
+    color: rgba(250,250,250,0.7);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .problem-item p strong {
+    color: var(--white);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ── SOLUTION ── */
+  .solution {
+    background: var(--white);
+    padding: 7rem 5rem;
+  }
+
+  .solution-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .solution-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+
+  .solution-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    margin-bottom: 1.25rem;
+  }
+
+  .solution-headline span { color: var(--gold); }
+
+  .solution-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--gray-500);
+    line-height: 1.75;
+  }
+
+  .solution-body + .solution-body { margin-top: 1rem; }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--gray-200);
+  }
+
+  .pillar {
+    padding: 2rem;
+    border-right: 1px solid var(--gray-200);
+    position: relative;
+  }
+
+  .pillar:last-child { border-right: none; }
+
+  .pillar-num {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--gray-200);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .pillar-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+  }
+
+  .pillar-desc {
+    font-size: 0.88rem;
+    color: var(--gray-500);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .pillar-accent {
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+  }
+
+  /* ── WHAT YOU GET ── */
+  .offer {
+    background: var(--black);
+    padding: 7rem 5rem;
+  }
+
+  .offer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .offer-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 3rem;
+  }
+
+  .offer-headline span { color: var(--gold); }
+
+  .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(250,250,250,0.08);
+  }
+
+  .offer-item {
+    background: var(--black);
+    padding: 2rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    transition: background 0.2s;
+  }
+
+  .offer-item:hover { background: rgba(184,150,12,0.04); }
+
+  .offer-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(184,150,12,0.12);
+    border: 0.5px solid rgba(184,150,12,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .offer-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .offer-item-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.35rem;
+  }
+
+  .offer-item-desc {
+    font-size: 0.85rem;
+    color: rgba(250,250,250,0.5);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .offer-price {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .price-block {
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+
+  .price-amount {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .price-amount span {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--gray-500);
+    font-weight: 300;
+  }
+
+  .price-note {
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 400;
+    margin-top: 0.25rem;
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--white);
+    padding: 7rem 5rem;
+  }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-image {
+    position: relative;
+  }
+
+  .about-image img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(15%);
+  }
+
+  .about-image::after {
+    content: '';
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 60%;
+    height: 60%;
+    border: 2px solid var(--gold);
+    z-index: -1;
+  }
+
+  .about-creds {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .about-cred {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--gray-500);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .about-cred::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .about-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-body {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--gray-500);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .about-body strong {
+    color: var(--black);
+    font-weight: 500;
+  }
+
+  /* ── FOR WHO ── */
+  .forwho {
+    background: var(--gray-100);
+    padding: 7rem 5rem;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .forwho-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .forwho-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: 0.02em;
+    color: var(--black);
+    margin-bottom: 3rem;
+  }
+
+  .forwho-headline span { color: var(--gold); }
+
+  .forwho-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .forwho-col h3 {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+
+  .forwho-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .forwho-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--gray-500);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .forwho-list li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+
+  .forwho-col.no .forwho-list li::before {
+    content: '✕';
+    color: var(--gray-500);
+  }
+
+  /* ── PROCESS ── */
+  .process {
+    background: var(--black);
+    padding: 7rem 5rem;
+  }
+
+  .process-inner { max-width: 1100px; margin: 0 auto; }
+
+  .process-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 3.5rem;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    right: 2rem;
+    height: 1px;
+    background: rgba(184,150,12,0.3);
+  }
+
+  .process-step { padding: 0 1.5rem 0 0; }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .step-desc {
+    font-size: 0.85rem;
+    color: rgba(250,250,250,0.45);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--gold);
+    padding: 6rem 5rem;
+    text-align: center;
+  }
+
+  .cta-inner { max-width: 700px; margin: 0 auto; }
+
+  .cta-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 0.02em;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .cta-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(10,10,10,0.65);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .btn-dark {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 1.1rem 2.5rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+
+  .btn-dark:hover { opacity: 0.85; transform: translateY(-2px); }
+
+  .cta-fine {
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    color: rgba(10,10,10,0.5);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 2.5rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(184,150,12,0.15);
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.06em;
+    color: var(--white);
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-links { display: flex; gap: 2rem; }
+
+  .footer-links a {
+    font-size: 0.8rem;
+    color: rgba(250,250,250,0.4);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-ig {
+    font-size: 0.8rem;
+    color: rgba(250,250,250,0.4);
+    font-weight: 300;
+  }
+
+  .footer-ig a { color: var(--gold); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-headline { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-sub { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-stats { animation: fadeUp 0.6s 0.5s ease both; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { padding: 5rem 1.5rem 3rem; }
+    .hero-image { height: 50vh; }
+    .hero-stats { left: 0; bottom: 0; width: 100%; }
+    .hero-stat { flex: 1; }
+    .problem { padding: 4rem 1.5rem; }
+    .problem-list { grid-template-columns: 1fr; }
+    .solution { padding: 4rem 1.5rem; }
+    .solution-top { grid-template-columns: 1fr; gap: 2rem; }
+    .pillars { grid-template-columns: 1fr; }
+    .pillar { border-right: none; border-bottom: 1px solid var(--gray-200); }
+    .offer { padding: 4rem 1.5rem; }
+    .offer-grid { grid-template-columns: 1fr; }
+    .about { padding: 4rem 1.5rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .about-image::after { display: none; }
+    .forwho { padding: 4rem 1.5rem; }
+    .forwho-grid { grid-template-columns: 1fr; }
+    .process { padding: 4rem 1.5rem; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .process-steps::before { display: none; }
+    .cta-section { padding: 4rem 1.5rem; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">DB <span>Coaching</span></div>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" class="nav-cta" target="_blank">Apply now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">12-Week Online Coaching</p>
+    <h1 class="hero-headline">
+      Stop<br>
+      Starting<br>
+      <span class="gold">Over.</span>
+    </h1>
+    <p class="hero-sub">
+      You have tried before. You know what to do. The problem has never been information — it has been <strong>consistency.</strong> That is exactly what I build with you.
+    </p>
+    <div class="hero-actions">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" class="btn-primary" target="_blank">Apply for coaching</a>
+      <span class="hero-note">3 founder spots · $200 AUD/month</span>
+    </div>
+  </div>
+  <div class="hero-image">
+    <!-- Replace src with your actual photo path e.g. images/hero.jpg -->
+    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Dalius Butkus — DB Coaching">
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">12+</span>
+        <span class="hero-stat-label">Years training</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">Cert IV</span>
+        <span class="hero-stat-label">Fitness AUS</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">12</span>
+        <span class="hero-stat-label">Week program</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem-inner">
+    <p class="section-label">Sound familiar?</p>
+    <h2 class="problem-headline">You are not the problem.<br>Your system is.</h2>
+    <ul class="problem-list reveal">
+      <li class="problem-item">
+        <p><strong>You have started before</strong>You went hard for a few weeks, saw some progress, then life happened and you stopped completely.</p>
+      </li>
+      <li class="problem-item">
+        <p><strong>Motivation is not enough</strong>You feel motivated on Monday. By Thursday something gets in the way. You rely on feeling like it — and that never lasts.</p>
+      </li>
+      <li class="problem-item">
+        <p><strong>You eat well — sometimes</strong>Monday to Thursday you are on it. The weekend undoes everything. You have no system that survives a difficult week.</p>
+      </li>
+      <li class="problem-item">
+        <p><strong>Nobody is paying attention</strong>You train alone, check in with nobody, and have no external accountability. When you skip — nothing happens.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <div class="solution-inner">
+    <div class="solution-top reveal">
+      <div>
+        <p class="section-label" style="color: var(--gold);">The approach</p>
+        <h2 class="solution-headline">A system built around <span>your</span> life.</h2>
+      </div>
+      <div>
+        <p class="solution-body">I do not hand you a generic meal plan and a cookie-cutter program. Before we change anything, I look at what you already eat and how you already move — and we build from there.</p>
+        <p class="solution-body">Most clients see results just from fixing two or three specific things. No complete overhaul required.</p>
+      </div>
+    </div>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <div class="pillar-accent"></div>
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Training that progresses</div>
+        <p class="pillar-desc">A structured 3-day program with video guides for every exercise. You always know what to do and exactly how to do it.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-accent"></div>
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">Nutrition that fits real life</div>
+        <p class="pillar-desc">No banned foods. No calorie obsession. A clear framework built around what you already eat — improved, not replaced.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-accent"></div>
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Accountability every week</div>
+        <p class="pillar-desc">Weekly check-ins where I actually read what you write and respond specifically to your week. You are never coaching alone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer">
+  <div class="offer-inner">
+    <p class="section-label">What is included</p>
+    <h2 class="offer-headline">Everything you need.<br><span>Nothing you don't.</span></h2>
+    <div class="offer-grid reveal">
+      <div class="offer-item">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div>
+          <div class="offer-item-title">Personalised training program</div>
+          <p class="offer-item-desc">Built around your schedule, your gym, your level. Adjusted every 4 weeks based on your progress.</p>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div>
+          <div class="offer-item-title">Weekly check-in every Sunday</div>
+          <p class="offer-item-desc">Training, nutrition, sleep, energy and mindset — reviewed every week. You get a personalised response every Monday.</p>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg>
+        </div>
+        <div>
+          <div class="offer-item-title">Nutrition blueprint</div>
+          <p class="offer-item-desc">A practical framework that explains the why behind every decision. Not a meal plan — a system that works with real life.</p>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <div>
+          <div class="offer-item-title">Exercise video library</div>
+          <p class="offer-item-desc">Every exercise filmed and explained. You always know exactly how each movement should look and feel.</p>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <div class="offer-item-title">Direct coach access</div>
+          <p class="offer-item-desc">Message me directly whenever you need to. Questions answered within 24 hours. You are never on your own.</p>
+        </div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <div class="offer-item-title">Progress tracking</div>
+          <p class="offer-item-desc">Track your weight and reps every session across 12 weeks. You can see exactly how much stronger you are getting.</p>
+        </div>
+      </div>
+    </div>
+    <div class="offer-price reveal">
+      <div class="price-block">
+        <div class="price-amount">$200 <span>AUD / month</span></div>
+        <div class="price-note">Founder rate — 3 spots only. Full price $250 after launch.</div>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" class="btn-primary" target="_blank">Apply for a founder spot</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-image reveal">
+      <!-- Replace src with your actual photo e.g. images/about.jpg -->
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Dalius Butkus — Personal Trainer">
+      <div class="about-creds">
+        <div class="about-cred">Cert III &amp; IV in Fitness — Australia</div>
+        <div class="about-cred">European Personal Training Licence</div>
+        <div class="about-cred">12+ years personal training experience</div>
+        <div class="about-cred">Online &amp; in-person — Brisbane based</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="section-label">About your coach</p>
+      <h2 class="about-headline">I have been<br>where you are.</h2>
+      <p class="about-body">I have been training seriously for over 12 years. In that time I have been through the inconsistency, the programs that did not stick, the periods where life took over. I know the difference between wanting to change and actually building the habits that make change permanent.</p>
+      <p class="about-body">I hold <strong>Cert III and IV in Fitness in Australia</strong> and a <strong>European Personal Training licence</strong>. But my real qualification is this: I have helped people who kept starting over finally stop starting over.</p>
+      <p class="about-body">My approach is simple. I work with what you already have. We do not burn everything down and rebuild from scratch. We find what is working, fix what is not, and build a system around your actual life — not a perfect version of it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="forwho">
+  <div class="forwho-inner">
+    <p class="section-label">Is this for you?</p>
+    <h2 class="forwho-headline">Right for some.<br><span>Not for everyone.</span></h2>
+    <div class="forwho-grid reveal">
+      <div class="forwho-col">
+        <h3>This is for you if</h3>
+        <ul class="forwho-list">
+          <li>You have trained before and know the basics</li>
+          <li>You are tired of starting over and want it to finally stick</li>
+          <li>You are ready to commit seriously for 12 weeks</li>
+          <li>You want to understand your training and nutrition, not just follow orders</li>
+          <li>You want a coach who actually pays attention to your week</li>
+          <li>You are open to being honest in your weekly check-in</li>
+        </ul>
+      </div>
+      <div class="forwho-col no">
+        <h3>This is not for you if</h3>
+        <ul class="forwho-list">
+          <li>You want a magic solution that requires no effort</li>
+          <li>You expect results without changing your habits</li>
+          <li>You are looking for the cheapest option available</li>
+          <li>You are not willing to train 3 days a week consistently</li>
+          <li>You want someone to just tell you what to eat with no explanation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-inner">
+    <p class="section-label">How it works</p>
+    <h2 class="process-headline">Simple from day one.</h2>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Apply</div>
+        <p class="step-desc">Fill in the short application form. Takes 5 minutes. Tells me who you are and what you are working toward.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Discovery call</div>
+        <p class="step-desc">A 20-minute call where we talk through your goals, history and what has and has not worked before.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-title">Your program</div>
+        <p class="step-desc">I build your personalised training program and nutrition framework. You receive it before day one.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-title">We start</div>
+        <p class="step-desc">Weekly check-ins begin. I review your progress every Sunday and respond every Monday. 12 weeks of real coaching.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <h2 class="cta-headline">Ready to stop starting over?</h2>
+    <p class="cta-sub">3 founder spots available at $200 AUD/month. Fill in the application — it takes 5 minutes and costs nothing to apply.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" class="btn-dark" target="_blank">Apply for a founder spot</a>
+    <p class="cta-fine">Online coaching · Available worldwide · In-person in Brisbane</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">DB <span>Coaching</span></div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#offer">Coaching</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" target="_blank">Apply</a>
+  </div>
+  <div class="footer-ig">Instagram: <a href="https://instagram.com/dalius_butkus" target="_blank">@dalius_butkus</a></div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
