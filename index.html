@@ -584,6 +584,55 @@
     font-weight: 500;
   }
 
+  /* ── GALLERY ── */
+  .gallery {
+    background: var(--black);
+    padding: 0 5rem 6rem;
+  }
+
+  .gallery-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 8px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+  }
+
+  .gallery-item.tall {
+    aspect-ratio: 2/3;
+    grid-row: span 2;
+  }
+
+  .gallery-item img,
+  .gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(10%) contrast(1.05);
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-item:hover img,
+  .gallery-item:hover video { transform: scale(1.03); }
+
+  .gallery-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, transparent 100%);
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(250,250,250,0.6);
+    letter-spacing: 0.05em;
+  }
+
   /* ── FOR WHO ── */
   .forwho {
     background: var(--gray-100);
@@ -948,6 +997,9 @@
     .about { padding: 4rem 1.5rem; }
     .about-inner { grid-template-columns: 1fr; gap: 3rem; }
     .about-image::after { display: none; }
+    .gallery { padding: 0 1.5rem 4rem; }
+    .gallery-inner { grid-template-columns: 1fr 1fr; }
+    .gallery-item.tall { grid-row: span 1; aspect-ratio: 3/4; }
     .forwho { padding: 4rem 1.5rem; }
     .forwho-grid { grid-template-columns: 1fr; }
     .process { padding: 4rem 1.5rem; }
@@ -989,8 +1041,8 @@
     </div>
   </div>
   <div class="hero-image">
-    <!-- Replace src with your actual photo path e.g. images/hero.jpg -->
-    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Dalius Butkus — DB Coaching">
+    <!-- Hero photo: purpleChange.png — you rowing in the gym -->
+    <img src="purpleChange.png" alt="Dalius Butkus — DB Coaching">
 
   </div>
 </section>
@@ -1153,8 +1205,8 @@
 <section class="about">
   <div class="about-inner">
     <div class="about-image reveal">
-      <!-- Replace src with your actual photo e.g. images/about.jpg -->
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Dalius Butkus — Personal Trainer">
+      <!-- About photo: group.png — group training session -->
+      <img src="group.png" alt="Dalius Butkus — Personal Trainer">
     </div>
     <div class="reveal">
       <p class="section-label">About your coach</p>
@@ -1162,6 +1214,28 @@
       <p class="about-body">I have been training seriously for over 12 years. In that time I have been through the inconsistency, the programs that did not stick, the periods where life took over. I know the difference between wanting to change and actually building the habits that make change permanent.</p>
       <p class="about-body">I hold <strong>Cert III and IV in Fitness in Australia</strong> and a <strong>European Personal Training licence</strong>. But my real qualification is this: I have helped people who kept starting over finally stop starting over.</p>
       <p class="about-body">My approach is simple. I work with what you already have. We do not burn everything down and rebuild from scratch. We find what is working, fix what is not, and build a system around your actual life — not a perfect version of it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-item tall">
+      <img src="hyroxRUN.png" alt="Dalius competing at Hyrox">
+      <div class="gallery-caption">Hyrox — Brisbane</div>
+    </div>
+    <div class="gallery-item">
+      <img src="group.png" alt="Group training session">
+      <div class="gallery-caption">Group training</div>
+    </div>
+    <div class="gallery-item video-placeholder">
+      <!-- To add your video: upload your MP4 to GitHub and replace the poster and src below -->
+      <!-- <video autoplay muted loop playsinline poster="purpleChange.png">
+        <source src="your-video.mp4" type="video/mp4">
+      </video> -->
+      <img src="purpleChange.png" alt="Training session">
+      <div class="gallery-caption">In the gym</div>
     </div>
   </div>
 </section>
