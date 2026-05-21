@@ -141,10 +141,7 @@
     line-height: 1.7;
   }
 
-  .hero-sub strong {
-    color: var(--white);
-    font-weight: 500;
-  }
+  .hero-sub strong { color: var(--white); font-weight: 500; }
 
   .hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
 
@@ -191,42 +188,6 @@
                 linear-gradient(to top, var(--black) 0%, transparent 20%);
   }
 
-  .hero-stats {
-    position: absolute;
-    bottom: 3rem;
-    left: -2rem;
-    z-index: 3;
-    display: flex;
-    gap: 0;
-  }
-
-  .hero-stat {
-    background: var(--gold);
-    padding: 1rem 1.5rem;
-    text-align: center;
-    border-right: 1px solid rgba(10,10,10,0.2);
-  }
-
-  .hero-stat:last-child { border-right: none; }
-
-  .hero-stat-num {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    color: var(--black);
-    line-height: 1;
-    display: block;
-  }
-
-  .hero-stat-label {
-    font-size: 0.65rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(10,10,10,0.7);
-    display: block;
-    margin-top: 2px;
-  }
-
   /* ── PROBLEM ── */
   .problem {
     background: var(--black);
@@ -234,10 +195,7 @@
     border-top: 1px solid rgba(184,150,12,0.15);
   }
 
-  .problem-inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
+  .problem-inner { max-width: 900px; margin: 0 auto; }
 
   .section-label {
     font-size: 0.72rem;
@@ -308,15 +266,9 @@
   }
 
   /* ── SOLUTION ── */
-  .solution {
-    background: var(--white);
-    padding: 7rem 5rem;
-  }
+  .solution { background: var(--white); padding: 7rem 5rem; }
 
-  .solution-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  .solution-inner { max-width: 1100px; margin: 0 auto; }
 
   .solution-top {
     display: grid;
@@ -369,19 +321,8 @@
     margin-bottom: 0.5rem;
   }
 
-  .pillar-title {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--black);
-    margin-bottom: 0.5rem;
-  }
-
-  .pillar-desc {
-    font-size: 0.88rem;
-    color: var(--gray-500);
-    font-weight: 300;
-    line-height: 1.6;
-  }
+  .pillar-title { font-size: 1rem; font-weight: 500; color: var(--black); margin-bottom: 0.5rem; }
+  .pillar-desc { font-size: 0.88rem; color: var(--gray-500); font-weight: 300; line-height: 1.6; }
 
   .pillar-accent {
     position: absolute;
@@ -391,16 +332,9 @@
     background: var(--gold);
   }
 
-  /* ── WHAT YOU GET ── */
-  .offer {
-    background: var(--black);
-    padding: 7rem 5rem;
-  }
-
-  .offer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  /* ── OFFER ── */
+  .offer { background: var(--black); padding: 7rem 5rem; }
+  .offer-inner { max-width: 1100px; margin: 0 auto; }
 
   .offer-headline {
     font-family: var(--font-display);
@@ -442,290 +376,18 @@
   }
 
   .offer-icon svg {
-    width: 18px;
-    height: 18px;
-    stroke: var(--gold);
-    fill: none;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    width: 18px; height: 18px;
+    stroke: var(--gold); fill: none;
+    stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
   }
 
-  .offer-item-title {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 0.35rem;
-  }
-
-  .offer-item-desc {
-    font-size: 0.85rem;
-    color: rgba(250,250,250,0.5);
-    font-weight: 300;
-    line-height: 1.6;
-  }
-
-  .offer-price {
-    margin-top: 3rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .price-block {
-    border-left: 3px solid var(--gold);
-    padding-left: 1.5rem;
-  }
-
-  .price-amount {
-    font-family: var(--font-display);
-    font-size: 3.5rem;
-    color: var(--white);
-    line-height: 1;
-  }
-
-  .price-amount span {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--gray-500);
-    font-weight: 300;
-  }
-
-  .price-note {
-    font-size: 0.8rem;
-    color: var(--gold);
-    font-weight: 400;
-    margin-top: 0.25rem;
-  }
-
-  /* ── ABOUT ── */
-  .about {
-    background: var(--white);
-    padding: 7rem 5rem;
-  }
-
-  .about-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-
-  .about-image {
-    position: relative;
-  }
-
-  .about-creds {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 2rem;
-  }
-
-  .about-cred {
-    font-size: 0.8rem;
-    font-weight: 400;
-    color: var(--gray-500);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .about-cred::before {
-    content: '';
-    display: block;
-    width: 16px;
-    height: 1px;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .about-headline {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    line-height: 1;
-    letter-spacing: 0.02em;
-    color: var(--black);
-    margin-bottom: 1.5rem;
-  }
-
-  .about-body {
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: var(--gray-500);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-
-  .about-body strong {
-    color: var(--black);
-    font-weight: 500;
-  }
-
-  .transformation-block {
-    margin-top: 2rem;
-    border: 0.5px solid var(--gray-200);
-    overflow: hidden;
-  }
-
-  .transformation-label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    padding: 0.75rem 1rem;
-    border-bottom: 0.5px solid var(--gray-200);
-  }
-
-  .transformation-block img {
-    width: 100%;
-    display: block;
-    filter: none;
-  }
-
-  .transformation-note {
-    font-size: 0.8rem;
-    color: var(--gray-500);
-    font-weight: 300;
-    padding: 0.75rem 1rem;
-    font-style: italic;
-    border-top: 0.5px solid var(--gray-200);
-  }
-
-  /* ── FOR WHO ── */
-  .forwho {
-    background: var(--gray-100);
-    padding: 7rem 5rem;
-    border-top: 1px solid var(--gray-200);
-  }
-
-  .forwho-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .forwho-headline {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-    letter-spacing: 0.02em;
-    color: var(--black);
-    margin-bottom: 3rem;
-  }
-
-  .forwho-headline span { color: var(--gold); }
-
-  .forwho-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .forwho-col h3 {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.25rem;
-  }
-
-  .forwho-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-
-  .forwho-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    font-size: 0.95rem;
-    color: var(--gray-500);
-    font-weight: 300;
-    line-height: 1.5;
-  }
-
-  .forwho-list li::before {
-    content: '✓';
-    color: var(--gold);
-    font-weight: 700;
-    flex-shrink: 0;
-    font-size: 0.85rem;
-    margin-top: 2px;
-  }
-
-  .forwho-col.no .forwho-list li::before {
-    content: '✕';
-    color: var(--gray-500);
-  }
-
-  /* ── PROCESS ── */
-  .process {
-    background: var(--black);
-    padding: 7rem 5rem;
-  }
-
-  .process-inner { max-width: 1100px; margin: 0 auto; }
-
-  .process-headline {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-    letter-spacing: 0.02em;
-    color: var(--white);
-    margin-bottom: 3.5rem;
-  }
-
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    position: relative;
-  }
-
-  .process-steps::before {
-    content: '';
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    right: 2rem;
-    height: 1px;
-    background: rgba(184,150,12,0.3);
-  }
-
-  .process-step { padding: 0 1.5rem 0 0; }
-
-  .step-num {
-    width: 40px;
-    height: 40px;
-    background: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--black);
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .step-title {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-
-  .step-desc {
-    font-size: 0.85rem;
-    color: rgba(250,250,250,0.45);
-    font-weight: 300;
-    line-height: 1.6;
-  }
+  .offer-item-title { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.35rem; }
+  .offer-item-desc { font-size: 0.85rem; color: rgba(250,250,250,0.5); font-weight: 300; line-height: 1.6; }
 
   /* ── PRICING CARD ── */
+  .offer-price { margin-top: 3rem; }
+
   .pricing-card {
-    margin-top: 3rem;
     border: 1px solid rgba(184,150,12,0.4);
     background: rgba(184,150,12,0.03);
   }
@@ -748,6 +410,22 @@
     color: var(--gold);
     margin-bottom: 0.5rem;
   }
+
+  .price-amount {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .price-amount span {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--gray-500);
+    font-weight: 300;
+  }
+
+  .price-note { font-size: 0.8rem; color: var(--gold); font-weight: 400; margin-top: 0.25rem; }
 
   .pricing-includes {
     padding: 2rem 2.5rem;
@@ -779,19 +457,19 @@
     line-height: 1.55;
   }
 
-  .pricing-check strong {
-    color: var(--white);
-    font-weight: 500;
-    display: block;
+  .pricing-check strong { color: var(--white); font-weight: 500; display: block; }
+
+  .pcheck { color: var(--gold); font-weight: 700; flex-shrink: 0; font-size: 1rem; margin-top: 1px; }
+
+  .pricing-policy {
+    padding: 1rem 2.5rem;
+    border-bottom: 1px solid rgba(184,150,12,0.2);
+    font-size: 0.82rem;
+    color: rgba(250,250,250,0.4);
+    font-weight: 300;
   }
 
-  .pcheck {
-    color: var(--gold);
-    font-weight: 700;
-    flex-shrink: 0;
-    font-size: 1rem;
-    margin-top: 1px;
-  }
+  .pricing-policy span { color: var(--gold); font-weight: 500; }
 
   .pricing-payment {
     padding: 1.5rem 2.5rem;
@@ -810,11 +488,7 @@
     flex-shrink: 0;
   }
 
-  .payment-methods {
-    display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-  }
+  .payment-methods { display: flex; gap: 1.25rem; flex-wrap: wrap; }
 
   .payment-method {
     font-size: 0.82rem;
@@ -831,6 +505,164 @@
     font-weight: 300;
     margin-left: auto;
   }
+
+  /* ── ABOUT ── */
+  .about { background: var(--white); padding: 7rem 5rem; }
+
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-image { position: relative; }
+
+  .about-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-body {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--gray-500);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .about-body strong { color: var(--black); font-weight: 500; }
+
+  .transformation-block {
+    border: 0.5px solid var(--gray-200);
+    overflow: hidden;
+  }
+
+  .transformation-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 0.75rem 1rem;
+    border-bottom: 0.5px solid var(--gray-200);
+  }
+
+  .transformation-block img { width: 100%; display: block; filter: none; }
+
+  .transformation-note {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    font-weight: 300;
+    padding: 0.75rem 1rem;
+    font-style: italic;
+    border-top: 0.5px solid var(--gray-200);
+  }
+
+  /* ── FOR WHO ── */
+  .forwho {
+    background: var(--gray-100);
+    padding: 7rem 5rem;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .forwho-inner { max-width: 1100px; margin: 0 auto; }
+
+  .forwho-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: 0.02em;
+    color: var(--black);
+    margin-bottom: 3rem;
+  }
+
+  .forwho-headline span { color: var(--gold); }
+
+  .forwho-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+  .forwho-col h3 {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+
+  .forwho-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .forwho-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--gray-500);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .forwho-list li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+
+  .forwho-col.no .forwho-list li::before { content: '✕'; color: var(--gray-500); }
+
+  /* ── PROCESS ── */
+  .process { background: var(--black); padding: 7rem 5rem; }
+  .process-inner { max-width: 1100px; margin: 0 auto; }
+
+  .process-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 3.5rem;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 2rem; left: 2rem; right: 2rem;
+    height: 1px;
+    background: rgba(184,150,12,0.3);
+  }
+
+  .process-step { padding: 0 1.5rem 0 0; }
+
+  .step-num {
+    width: 40px; height: 40px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-title { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; }
+  .step-desc { font-size: 0.85rem; color: rgba(250,250,250,0.45); font-weight: 300; line-height: 1.6; }
 
   /* ── CTA ── */
   .cta-section {
@@ -860,26 +692,7 @@
     line-height: 1.6;
   }
 
-  .btn-dark {
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--black);
-    padding: 1.1rem 2.5rem;
-    text-decoration: none;
-    display: inline-block;
-    transition: opacity 0.2s, transform 0.15s;
-  }
-
-  .btn-dark:hover { opacity: 0.85; transform: translateY(-2px); }
-
-  .cta-fine {
-    margin-top: 1.25rem;
-    font-size: 0.8rem;
-    color: rgba(10,10,10,0.5);
-  }
+  .cta-fine { margin-top: 1.25rem; font-size: 0.8rem; }
 
   /* ── FOOTER ── */
   footer {
@@ -912,13 +725,11 @@
 
   .footer-links a:hover { color: var(--gold); }
 
-  .footer-ig {
-    font-size: 0.8rem;
-    color: rgba(250,250,250,0.4);
-    font-weight: 300;
-  }
+  .footer-ig { font-size: 0.8rem; color: rgba(250,250,250,0.4); font-weight: 300; display: flex; align-items: center; gap: 0.5rem; }
+  .footer-ig a { color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
 
-  .footer-ig a { color: var(--gold); text-decoration: none; }
+  /* Instagram SVG icon */
+  .ig-icon { width: 16px; height: 16px; fill: var(--gold); flex-shrink: 0; }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
@@ -930,7 +741,6 @@
   .hero-headline { animation: fadeUp 0.6s 0.1s ease both; }
   .hero-sub { animation: fadeUp 0.6s 0.2s ease both; }
   .hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
-  .hero-stats { animation: fadeUp 0.6s 0.5s ease both; }
 
   .reveal {
     opacity: 0;
@@ -938,10 +748,7 @@
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ── MOBILE ── */
   @media (max-width: 768px) {
@@ -949,8 +756,6 @@
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-text { padding: 5rem 1.5rem 3rem; }
     .hero-image { height: 50vh; }
-    .hero-stats { left: 0; bottom: 0; width: 100%; }
-    .hero-stat { flex: 1; }
     .problem { padding: 4rem 1.5rem; }
     .problem-list { grid-template-columns: 1fr; }
     .solution { padding: 4rem 1.5rem; }
@@ -961,7 +766,6 @@
     .offer-grid { grid-template-columns: 1fr; }
     .about { padding: 4rem 1.5rem; }
     .about-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .about-image::after { display: none; }
     .forwho { padding: 4rem 1.5rem; }
     .forwho-grid { grid-template-columns: 1fr; }
     .process { padding: 4rem 1.5rem; }
@@ -1003,9 +807,7 @@
     </div>
   </div>
   <div class="hero-image">
-    <!-- Hero photo: hyroxrow.png — Hyrox rope pull -->
     <img src="hyroxrow.png" alt="Dalius Butkus — DB Coaching">
-
   </div>
 </section>
 
@@ -1068,7 +870,7 @@
 </section>
 
 <!-- OFFER -->
-<section class="offer">
+<section class="offer" id="offer">
   <div class="offer-inner">
     <p class="section-label">What is included</p>
     <h2 class="offer-headline">Everything you need.<br><span>Nothing you don't.</span></h2>
@@ -1079,7 +881,7 @@
         </div>
         <div>
           <div class="offer-item-title">Personalised training program</div>
-          <p class="offer-item-desc">Built around your schedule, your gym, and your goal. The number of days, exercises and intensity — all tailored to you. Adjusted as you progress.</p>
+          <p class="offer-item-desc">Built around your schedule, your gym, and your goal. Days, exercises and intensity — all tailored to you. Adjusted as you progress.</p>
         </div>
       </div>
       <div class="offer-item">
@@ -1087,8 +889,8 @@
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 6v6l4 2"/></svg>
         </div>
         <div>
-          <div class="offer-item-title">Weekly check-in every Sunday</div>
-          <p class="offer-item-desc">Training, nutrition, sleep, energy and mindset — reviewed every week. You get a personalised response every Monday.</p>
+          <div class="offer-item-title">Weekly check-in</div>
+          <p class="offer-item-desc">Training, nutrition, sleep, energy and mindset — reviewed every week. You get a personalised response within 48 hours.</p>
         </div>
       </div>
       <div class="offer-item">
@@ -1144,19 +946,22 @@
             <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Personalised training program</strong> — built around your schedule, goals and gym. Updated as you progress.</div></div>
             <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Nutrition blueprint</strong> — a practical system that works with real life. Not a rigid meal plan.</div></div>
             <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Exercise video library</strong> — every exercise filmed and explained. No guessing how anything should look.</div></div>
-            <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Weekly check-in</strong> — fill in your check-in every Sunday. I review it and respond every Monday personally.</div></div>
+            <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Weekly check-in</strong> — submit every week and receive a personalised response within 48 hours.</div></div>
             <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Progress tracking sheet</strong> — track your weights and reps every session across 12 weeks.</div></div>
             <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Direct coach access</strong> — message me anytime. Responses within 24 hours.</div></div>
           </div>
+        </div>
+        <div class="pricing-policy">
+          <span>Commitment:</span> First month is non-refundable. Program content is released in phases — training and nutrition delivered upfront, advanced phases unlocked each month. Cancel anytime after month 1 with 14 days notice.
         </div>
         <div class="pricing-payment">
           <div class="payment-label">How payment works</div>
           <div class="payment-methods">
             <div class="payment-method"><span>💳</span> Card (Visa, Mastercard, Amex)</div>
-            <div class="payment-method"><span></span> Apple Pay</div>
+            <div class="payment-method"><span>🍎</span> Apple Pay</div>
             <div class="payment-method"><span>🏦</span> AU Bank Transfer (BECS)</div>
           </div>
-          <div class="payment-note">Secure monthly subscription via Stripe. Cancel anytime. No lock-in contracts.</div>
+          <div class="payment-note">Secure monthly subscription via Stripe.</div>
         </div>
       </div>
     </div>
@@ -1175,7 +980,11 @@
     </div>
     <div class="about-image reveal">
       <div class="transformation-block">
+        <div class="transformation-label">The result of consistency over time</div>
         <img src="transformation.png" alt="Transformation — DB Coaching">
+        <div class="transformation-note">12+ years of training. This is what showing up consistently actually looks like.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1188,7 +997,6 @@
       <div class="forwho-col">
         <h3>This is for you if</h3>
         <ul class="forwho-list">
-          <li>You have trained before and know the basics</li>
           <li>You are tired of starting over and want it to finally stick</li>
           <li>You are ready to commit seriously for 12 weeks</li>
           <li>You want to understand your training and nutrition, not just follow orders</li>
@@ -1229,12 +1037,12 @@
       <div class="process-step">
         <div class="step-num">3</div>
         <div class="step-title">Your program</div>
-        <p class="step-desc">I build your personalised training program and nutrition framework. You receive it before day one.</p>
+        <p class="step-desc">I build your personalised training program and nutrition framework. You receive everything before day one.</p>
       </div>
       <div class="process-step">
         <div class="step-num">4</div>
         <div class="step-title">We start</div>
-        <p class="step-desc">Weekly check-ins begin. I review your progress every Sunday and respond every Monday. 12 weeks of real coaching.</p>
+        <p class="step-desc">Weekly check-ins begin. I review your progress each week and respond with specific feedback. 12 weeks of real coaching.</p>
       </div>
     </div>
   </div>
@@ -1258,7 +1066,14 @@
     <a href="#offer">Coaching</a>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" target="_blank">Apply</a>
   </div>
-  <div class="footer-ig">Instagram: <a href="https://instagram.com/dalius_butkus" target="_blank">@dalius_butkus</a></div>
+  <div class="footer-ig">
+    <a href="https://instagram.com/dalius_butkus" target="_blank">
+      <svg class="ig-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+      @dalius_butkus
+    </a>
+  </div>
 </footer>
 
 <script>
