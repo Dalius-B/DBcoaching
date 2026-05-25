@@ -384,8 +384,106 @@
   .offer-item-title { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.35rem; }
   .offer-item-desc { font-size: 0.85rem; color: rgba(250,250,250,0.5); font-weight: 300; line-height: 1.6; }
 
-  /* ── PRICING CARD ── */
+  /* ── PRICING CARDS ── */
   .offer-price { margin-top: 3rem; }
+
+  .pricing-options {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1px;
+    background: rgba(184,150,12,0.2);
+    margin-top: 3rem;
+  }
+
+  .pricing-option {
+    background: var(--black);
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pricing-option.featured {
+    background: rgba(184,150,12,0.03);
+    border: 1px solid rgba(184,150,12,0.4);
+  }
+
+  .pricing-option-tag {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .pricing-option-name {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .pricing-option-price {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .pricing-option-price span {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    font-weight: 300;
+  }
+
+  .pricing-option-desc {
+    font-size: 0.85rem;
+    color: rgba(250,250,250,0.5);
+    font-weight: 300;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .pricing-option-includes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .pricing-option-item {
+    font-size: 0.82rem;
+    color: rgba(250,250,250,0.6);
+    font-weight: 300;
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .pricing-option-note {
+    font-size: 0.75rem;
+    color: rgba(250,250,250,0.3);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .btn-secondary {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid rgba(184,150,12,0.5);
+    padding: 0.85rem 1.5rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, border-color 0.2s;
+    align-self: flex-start;
+  }
+
+  .btn-secondary:hover { background: rgba(184,150,12,0.08); border-color: var(--gold); }
 
   .pricing-card {
     border: 1px solid rgba(184,150,12,0.4);
@@ -775,6 +873,7 @@
     .pricing-header { flex-direction: column; align-items: flex-start; }
     .pricing-payment { flex-direction: column; align-items: flex-start; gap: 1rem; }
     .payment-note { margin-left: 0; }
+    .pricing-options { grid-template-columns: 1fr; }
     .cta-section { padding: 4rem 1.5rem; }
     footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
     .footer-links { flex-wrap: wrap; justify-content: center; }
@@ -803,7 +902,7 @@
     </p>
     <div class="hero-actions">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" class="btn-primary" target="_blank">Apply for coaching</a>
-      <span class="hero-note">First 3 spots · $200 AUD/month</span>
+      <span class="hero-note">From $79 AUD · Early access coaching from $200/month</span>
     </div>
   </div>
   <div class="hero-image">
@@ -931,35 +1030,58 @@
       </div>
     </div>
     <div class="offer-price reveal">
-      <div class="pricing-card">
-        <div class="pricing-header">
+      <div class="pricing-options">
+
+        <!-- OPTION 1 — SELF GUIDED -->
+        <div class="pricing-option">
           <div>
-            <div class="pricing-label">Early access — Limited Spots</div>
-            <div class="price-amount">$200 <span>AUD / month</span></div>
-            <div class="price-note">Full price $250/month after launch spots are filled</div>
+            <div class="pricing-option-tag">Self-guided</div>
+            <div class="pricing-option-name">Program Only</div>
           </div>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" class="btn-primary" target="_blank">Apply for a spot</a>
+          <div class="pricing-option-price">$79 <span>AUD one-time</span></div>
+          <p class="pricing-option-desc">For people who are self-motivated and just need a clear, structured plan to follow. No coaching — just the tools.</p>
+          <div class="pricing-option-includes">
+            <div class="pricing-option-item"><span class="pcheck" style="color:var(--gold)">✓</span>Personalised training program</div>
+            <div class="pricing-option-item"><span class="pcheck" style="color:var(--gold)">✓</span>Nutrition blueprint</div>
+            <div class="pricing-option-item"><span class="pcheck" style="color:var(--gold)">✓</span>Exercise video library access</div>
+            <div class="pricing-option-item"><span class="pcheck" style="color:var(--gold)">✓</span>Progress tracking sheet</div>
+          </div>
+          <p class="pricing-option-note">Delivered within 48 hours via email after completing the onboarding form.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" class="btn-secondary" target="_blank">Get the program</a>
         </div>
-        <div class="pricing-includes">
-          <div class="pricing-includes-label">Everything included at this price</div>
-          <div class="pricing-checklist">
-            <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Personalised training program</strong> — built around your schedule, goals and gym. Updated as you progress.</div></div>
-            <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Nutrition blueprint</strong> — a practical system that works with real life. Not a rigid meal plan.</div></div>
-            <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Exercise video library</strong> — every exercise filmed and explained. No guessing how anything should look.</div></div>
-            <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Weekly check-in</strong> — submit every week and receive a personalised response within 48 hours.</div></div>
-            <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Progress tracking sheet</strong> — track your weights and reps every session across 12 weeks.</div></div>
-            <div class="pricing-check"><span class="pcheck">✓</span><div><strong>Direct coach access</strong> — message me anytime. Responses within 24 hours.</div></div>
+
+        <!-- OPTION 2 — FULL COACHING -->
+        <div class="pricing-option featured">
+          <div>
+            <div class="pricing-option-tag">Early access — 3 spots only</div>
+            <div class="pricing-option-name">Full Coaching</div>
+          </div>
+          <div class="pricing-option-price">$200 <span>AUD / month</span></div>
+          <p class="pricing-option-desc">For people who want accountability, weekly feedback, and a coach paying attention every step of the way. Everything in the program — plus me.</p>
+          <div class="pricing-option-includes">
+            <div class="pricing-option-item"><span class="pcheck" style="color:var(--gold)">✓</span><strong style="color:rgba(250,250,250,0.85)">Everything in Program Only</strong></div>
+            <div class="pricing-option-item"><span class="pcheck" style="color:var(--gold)">✓</span>Weekly check-in — personalised response within 48 hours</div>
+            <div class="pricing-option-item"><span class="pcheck" style="color:var(--gold)">✓</span>Direct coach access — questions answered within 24 hours</div>
+            <div class="pricing-option-item"><span class="pcheck" style="color:var(--gold)">✓</span>Program adjusted every 4 weeks based on your progress</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:0.25rem;">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" class="btn-primary" target="_blank">Apply for early access</a>
+            <span style="font-size:0.78rem;color:rgba(250,250,250,0.3)">Full price $250/month after launch</span>
+          </div>
+          <div class="pricing-policy" style="margin-top:0.5rem;">
+            <span>Commitment:</span> First month is non-refundable. Program content released in phases. Cancel anytime after month 1 with 14 days notice.
+          </div>
+          <div class="pricing-payment" style="padding:0.75rem 0 0;">
+            <div class="payment-label">Payment</div>
+            <div class="payment-methods">
+              <div class="payment-method"><span>💳</span> Card</div>
+              <div class="payment-method"><span>🍎</span> Apple Pay</div>
+              <div class="payment-method"><span>🏦</span> BECS</div>
+            </div>
+            <div class="payment-note">Via Stripe.</div>
           </div>
         </div>
-        <div class="pricing-payment">
-          <div class="payment-label">How payment works</div>
-          <div class="payment-methods">
-            <div class="payment-method"><span>💳</span> Card (Visa, Mastercard, Amex)</div>
-            <div class="payment-method"><span>🍎</span> Apple Pay</div>
-            <div class="payment-method"><span>🏦</span> AU Bank Transfer (BECS)</div>
-          </div>
-          <div class="payment-note">Secure monthly subscription via Stripe.</div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -977,7 +1099,11 @@
     </div>
     <div class="about-image reveal">
       <div class="transformation-block">
+        <div class="transformation-label">The result of consistency over time</div>
         <img src="transformation.png" alt="Transformation — DB Coaching">
+        <div class="transformation-note">12+ years of training. This is what showing up consistently actually looks like.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1002,7 +1128,7 @@
         <ul class="forwho-list">
           <li>You want a magic solution that requires no effort</li>
           <li>You expect results without changing your habits</li>
-          <li>You are not ready to invest in your health right now</li>
+          <li>You are looking for the cheapest option available</li>
           <li>You are not willing to train consistently to the schedule we agree on</li>
           <li>You want someone to just tell you what to eat with no explanation</li>
         </ul>
@@ -1045,9 +1171,9 @@
 <section class="cta-section">
   <div class="cta-inner reveal">
     <h2 class="cta-headline">Ready to stop starting over?</h2>
-    <p class="cta-sub">Early access available at $200 AUD/month. Fill in the application — it takes 5 minutes and costs nothing to apply.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" class="btn-primary" target="_blank">Apply for early access</a>
-    <p class="cta-fine" style="color: rgba(250,250,250,0.45);">Online coaching · Available worldwide </p>
+    <p class="cta-sub">3 founder spots available at $200 AUD/month. Fill in the application — it takes 5 minutes and costs nothing to apply.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" class="btn-primary" target="_blank">Apply for a founder spot</a>
+    <p class="cta-fine" style="color: rgba(250,250,250,0.45);">Online coaching · Available worldwide · In-person in Brisbane</p>
   </div>
 </section>
 
