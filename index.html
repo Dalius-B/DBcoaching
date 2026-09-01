@@ -1667,6 +1667,21 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
       });
   });
 
+  // If no inbox is wired up yet, say so before anyone fills in three steps.
+  (function () {
+    var k = keyEl ? keyEl.value : "";
+    if (k && k.indexOf("REPLACE_WITH") !== 0) return;
+    var warn = document.createElement("p");
+    warn.className = "form-status is-error";
+    warn.style.margin = "0 0 var(--s-300)";
+    warn.textContent = "This form is not connected to an inbox yet. ";
+    var a = document.createElement("a");
+    a.href = FALLBACK; a.target = "_blank"; a.rel = "noopener";
+    a.textContent = "Apply through the current form instead.";
+    warn.appendChild(a);
+    form.insertBefore(warn, form.querySelector(".form-head"));
+  })();
+
   try {
     show(0);
   } catch (err) {
