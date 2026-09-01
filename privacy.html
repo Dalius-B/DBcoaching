@@ -1,5 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--
+  APPLICATION MODE SWITCH
+  =======================
+  data-apply on <html> decides where applications are taken, in BOTH files.
+
+    data-apply="google"  Google Form. The in-page form is hidden but stays in
+                         the file, untouched and ready.
+    data-apply="web3"    The three step in-page form, posting to Web3Forms.
+
+  To switch, change the attribute in index.html AND privacy.html. Nothing else.
+  privacy.html describes a different processor in each mode, so the two must
+  always agree or the privacy page becomes wrong.
+-->
+<html lang="en" data-apply="google">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -117,6 +130,10 @@ p { text-wrap: pretty; }
   text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: var(--s-200); }
 .panel ul { margin-top: 0; }
 
+/* application mode switch, see the comment at the top of the file */
+html[data-apply="google"] .when-web3 { display: none; }
+html[data-apply="web3"] .when-google { display: none; }
+
 .none li::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--ink-soft); }
 
 /* footer */
@@ -191,7 +208,14 @@ p { text-wrap: pretty; }
         <p>DB Coaching, run by Dalius Butkus. If you want anything on this page acted on, message <a href="https://instagram.com/dalius_butkus" target="_blank" rel="noopener">@dalius_butkus</a> on Instagram, or reply to any email you have already received about your application.</p>
       </section>
 
-      <section>
+      <section class="when-google">
+        <h2>Where the application form lives</h2>
+        <p>The application form is a Google Form. Clicking any apply button on this site opens it in a new tab on Google's own domain, and nothing you type into it passes through this site at all. This page collects nothing.</p>
+        <p>What you fill in there is held in Google's systems and reaches Dalius through his Google account. Google's own privacy terms cover that step, and its handling of your data is not something this site controls.</p>
+        <p>Some of what the form asks describes your health and fitness. You are never obliged to write more than you want to.</p>
+      </section>
+
+      <section class="when-web3">
         <h2>What the application form collects</h2>
         <p>Only what is typed into it. Nothing is gathered in the background, and there is no hidden field.</p>
         <div class="panel">
@@ -215,9 +239,10 @@ p { text-wrap: pretty; }
 
       <section>
         <h2>Who else handles it</h2>
-        <p>Three services are involved in this site working at all. None of them are given your application to do anything else with.</p>
+        <p>These services are involved in this site working at all. None of them are given your application to do anything else with.</p>
         <ul>
-          <li><b>Web3Forms</b> receives the form and forwards it as an email. It is the postbox between the page and the inbox.</li>
+          <li class="when-google"><b>Google Forms</b> hosts the application itself and stores the answers, on Google's terms rather than these.</li>
+          <li class="when-web3"><b>Web3Forms</b> receives the form and forwards it as an email. It is the postbox between the page and the inbox.</li>
           <li><b>GitHub Pages</b> hosts the site. Like any web server it records requests, including IP addresses, in its own logs.</li>
           <li><b>Google Fonts</b> serves the two typefaces the page uses. Loading them means your browser contacts Google and, unavoidably, reveals your IP address in doing so.</li>
         </ul>
@@ -240,7 +265,7 @@ p { text-wrap: pretty; }
 
       <section>
         <h2>How long it is kept</h2>
-        <p>Your application is kept while it is being considered, and while we are working together if you go ahead. If you do not go ahead, it stays in the inbox as an ordinary email until you ask for it to be removed. Ask, and it is deleted.</p>
+        <p>Your application is kept while it is being considered, and while we are working together if you go ahead. If you do not go ahead, it stays in the form responses <span class="when-web3">and the inbox </span>until you ask for it to be removed. Ask, and it is deleted.</p>
       </section>
 
       <section>
