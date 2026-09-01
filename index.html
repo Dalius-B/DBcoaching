@@ -504,7 +504,7 @@ p { text-wrap: pretty; }
   position: relative; background: #0A0A0A; color: var(--paper);
   padding-block: clamp(var(--s-700), 9vw, var(--s-900)); overflow: hidden;
 }
-.apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-700); align-items: center; }
+.apply-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-700); align-items: center; }
 .apply-points { margin-top: var(--s-400); display: flex; flex-direction: column; gap: var(--s-100); }
 .apply-points li { display: flex; gap: var(--s-100); align-items: flex-start; font-size: 1rem; color: var(--soft-paper); }
 .apply-points svg { width: 20px; height: 20px; margin-top: 2px; flex: none; stroke: var(--volt); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -518,7 +518,7 @@ p { text-wrap: pretty; }
 .form-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-200); margin-bottom: var(--s-200); }
 .form-step-label { font-family: var(--display); font-size: 0.75rem; font-weight: 600; font-stretch: 84%; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 .progress { height: 3px; background: rgba(16,16,16,0.12); border-radius: var(--r-pill); overflow: hidden; margin-bottom: var(--s-400); }
-.progress i { display: block; height: 100%; background: var(--volt); border-radius: var(--r-pill); transform-origin: left; scale: 0.3333 1; transition-property: scale; transition-duration: 420ms; transition-timing-function: var(--ease-out); }
+.progress i { display: block; height: 100%; background: var(--volt); border-radius: var(--r-pill); transform-origin: left; scale: 0.1429 1; transition-property: scale; transition-duration: 420ms; transition-timing-function: var(--ease-out); }
 /* application mode switch, see the comment at the top of the file */
 .apply-google { display: none; }
 html[data-apply="google"] #applyForm,
@@ -526,7 +526,7 @@ html[data-apply="google"] #formDone { display: none; }
 html[data-apply="google"] .apply-google { display: block; }
 .apply-google h3 { font-size: 1.5rem; font-stretch: 106%; letter-spacing: 0.01em; margin-bottom: var(--s-200); }
 .apply-google p { color: var(--ink-soft); }
-.apply-google .btn { width: 100%; margin-top: var(--s-400); }
+.apply-google .btn { width: 100%; margin-top: var(--s-400); white-space: normal; text-align: center; }
 .apply-google .form-foot { margin-top: var(--s-200); }
 .apply-google .steps-note { margin-top: var(--s-300); padding-top: var(--s-300); border-top: 1px solid var(--hair-ink); font-size: 0.875rem; }
 
@@ -541,7 +541,9 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
 .js .step legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .field { display: flex; flex-direction: column; gap: var(--s-75); }
 .field label, .legend-inline { font-family: var(--display); font-size: 0.8125rem; font-weight: 600; font-stretch: 88%; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink); }
-.field input, .field select, .field textarea {
+/* text inputs only: this styling must never reach a checkbox or a radio,
+   or min-height: 48px turns a 20px tick box into a 48px slab */
+.field input:not([type="checkbox"]):not([type="radio"]), .field select, .field textarea {
   font-family: var(--display); font-size: 1rem; font-stretch: 100%; color: var(--ink);
   background: #FFFFFF; border: 1px solid rgba(16,16,16,0.20); border-radius: var(--r-sm);
   padding: var(--s-100) var(--s-200); min-height: 48px; width: 100%;
@@ -549,8 +551,8 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
 }
 .field textarea { min-height: 96px; resize: vertical; line-height: 1.5; padding-block: var(--s-100); }
 .field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 18px) 21px, calc(100% - 13px) 21px; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: var(--s-500); }
-.field input:hover, .field select:hover, .field textarea:hover { border-color: rgba(16,16,16,0.42); }
-.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; border-color: var(--ink); }
+.field input:not([type="checkbox"]):not([type="radio"]):hover, .field select:hover, .field textarea:hover { border-color: rgba(16,16,16,0.42); }
+.field input:not([type="checkbox"]):not([type="radio"]):focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; border-color: var(--ink); }
 .field [aria-invalid="true"] { border-color: #B3261E; }
 .err { font-family: var(--display); font-size: 0.8125rem; font-stretch: 92%; color: #B3261E; min-height: 0; }
 .err:empty { display: none; }
@@ -559,7 +561,8 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
 .opt input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
 .opt span {
   display: block; padding: var(--s-200); border: 1px solid rgba(16,16,16,0.20); border-radius: var(--r-sm);
-  background: #FFFFFF; min-height: 48px; font-size: 0.9375rem;
+  background: #FFFFFF; min-height: 48px;
+  font-size: 1rem; font-weight: 400; text-transform: none; letter-spacing: 0;
   transition-property: border-color, background-color, box-shadow; transition-duration: 150ms; transition-timing-function: var(--ease-out);
 }
 .opt b { display: block; font-family: var(--display); font-weight: 700; font-stretch: 96%; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8125rem; }
@@ -570,8 +573,46 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
 /* .muted resolves to the light on-ink colour inside the form card, which sits
    on a light surface. The form needs its own hint colour. */
 .hint { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--ink-soft); }
-.consent { display: flex; gap: var(--s-100); align-items: flex-start; font-size: 0.875rem; color: var(--ink-soft); }
-.consent input { width: 20px; height: 20px; margin-top: 2px; flex: none; accent-color: var(--ink); }
+/* three small numbers side by side */
+.field-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); gap: var(--s-200); }
+
+/* pill radios: experience, days, session length, where, yes/no */
+.chips { display: flex; flex-wrap: wrap; gap: var(--s-75); }
+.chip-opt { position: relative; }
+.chip-opt input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+/* .chip-opt, .check-opt and .opt are all <label>s sitting inside .field, so
+   they inherit the uppercase 13px field-label styling. Set what they should
+   look like explicitly instead of inheriting it by accident. */
+.chip-opt span {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  min-height: 44px; padding: 0 var(--s-200);
+  font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+  border: 1px solid rgba(16,16,16,0.20); border-radius: var(--r-pill); background: #FFFFFF;
+  transition-property: border-color, background-color; transition-duration: 150ms; transition-timing-function: var(--ease-out);
+}
+.chip-opt input:hover + span { border-color: rgba(16,16,16,0.45); }
+.chip-opt input:checked + span { border-color: var(--ink); background: var(--volt); font-weight: 600; }
+.chip-opt input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* 1 to 10 stress scale */
+.scale { display: flex; flex-wrap: wrap; gap: var(--s-50); }
+.scale-opt { flex: 1 1 40px; }
+.scale-opt span { padding: 0; font-variant-numeric: tabular-nums; }
+.scale-ends { display: flex; justify-content: space-between; gap: var(--s-200); margin-top: var(--s-75); }
+.scale-end {
+  font-family: var(--display); font-size: 0.75rem; font-weight: 600; font-stretch: 84%;
+  text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-soft);
+}
+
+/* tick all that apply */
+.checks { display: flex; flex-direction: column; }
+.field .check-opt { display: flex; gap: var(--s-100); align-items: flex-start; min-height: 44px; padding: var(--s-75) 0;
+  font-size: 1rem; font-weight: 400; text-transform: none; letter-spacing: 0; line-height: 1.45; cursor: pointer; }
+.field .check-opt input { width: 20px; height: 20px; margin-top: 2px; flex: none; accent-color: var(--ink); }
+
+.field .consent { display: flex; gap: var(--s-100); align-items: flex-start; font-size: 0.875rem; color: var(--ink-soft);
+  font-weight: 400; text-transform: none; letter-spacing: 0; line-height: 1.5; }
+.field .consent input { width: 20px; height: 20px; margin-top: 2px; flex: none; accent-color: var(--ink); }
 .consent a { color: var(--ink); }
 .form-nav { display: flex; gap: var(--s-100); align-items: center; margin-top: var(--s-400); flex-wrap: wrap; }
 .form-nav .btn { flex: 1 1 auto; }
@@ -662,9 +703,11 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
   .plans { grid-template-columns: 1fr; }
   .fit-grid { grid-template-columns: 1fr; }
   .track-alt-steps { grid-template-columns: 1fr; }
-  .apply-grid { grid-template-columns: 1fr; gap: var(--s-500); }
+  .apply-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s-500); }
   .mission-copy { max-width: 100%; }
 }
+/* nowrap button labels are the usual cause of a box refusing to shrink */
+@media (max-width: 400px) { .btn { white-space: normal; } }
 @media (max-width: 620px) {
   :root { --s-900: 72px; --s-800: 64px; }
   .hero-lede { font-size: 1.125rem; }
@@ -1162,99 +1205,262 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
           <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
 
           <div class="form-head">
-            <span class="form-step-label" id="stepLabel">Step 1 of 3 &middot; About you</span>
+            <span class="form-step-label" id="stepLabel">Step 1 of 7 &middot; About you</span>
           </div>
-          <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+          <div class="progress" aria-hidden="true"><i id="progressBar" style="scale:0.1429 1"></i></div>
 
           <fieldset class="step" data-step="1">
             <legend>About you</legend>
             <div class="field">
               <label for="f-name">Your name</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required>
-              <p class="err" id="e-name" aria-live="polite"></p>
+<input id="f-name" name="Full name" type="text" required>
+              <p class="err" id="e-f-name" aria-live="polite"></p>
             </div>
             <div class="field">
               <label for="f-email">Email</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" required>
-              <p class="err" id="e-email" aria-live="polite"></p>
+<input id="f-email" name="Email" type="email" required autocomplete="email">
+              <p class="err" id="e-f-email" aria-live="polite"></p>
             </div>
-            <div class="field" role="group" aria-labelledby="planLabel">
-              <span class="legend-inline" id="planLabel">What are you applying for</span>
+            <div class="field" role="group" aria-labelledby="lbl-option">
+              <span class="legend-inline" id="lbl-option">Which option are you interested in</span>
               <div class="plan-pick">
-                <label class="opt"><input type="radio" name="option" value="Full coaching, $200 AUD per month" required>
+                <label class="opt"><input type="radio" name="Which option" value="Full coaching — program plus weekly check-ins and direct coach access" required>
                   <span><b>Full coaching</b><em>$200 AUD / month</em></span></label>
-                <label class="opt"><input type="radio" name="option" value="Program only, $79 AUD one time">
+                <label class="opt"><input type="radio" name="Which option" value="Program only — training plan and nutrition blueprint">
                   <span><b>Program only</b><em>$79 AUD one time</em></span></label>
               </div>
               <p class="err" id="e-option" aria-live="polite"></p>
             </div>
+            <div class="field-row">
             <div class="field">
-              <label for="f-where">Where are you based <span class="hint">(for your time zone)</span></label>
-              <input id="f-where" name="location" type="text" placeholder="City or country">
+              <label for="f-age">Age</label>
+<input id="f-age" name="Age" type="number" required min="13" max="100" inputmode="numeric">
+              <p class="err" id="e-f-age" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-height">Height (cm)</label>
+<input id="f-height" name="Height (cm)" type="number" required min="100" max="250" inputmode="numeric">
+              <p class="err" id="e-f-height" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-weight">Weight (kg)</label>
+<input id="f-weight" name="Weight (kg)" type="number" required min="25" max="400" step="0.1" inputmode="decimal">
+              <p class="err" id="e-f-weight" aria-live="polite"></p>
+            </div>
             </div>
           </fieldset>
 
           <fieldset class="step" data-step="2" hidden>
-            <legend>Your training</legend>
+            <legend>Your goal</legend>
             <div class="field">
-              <label for="f-goal">Your main goal</label>
-              <select id="f-goal" name="goal" required>
-                <option value="">Choose one</option>
-                <option>Lose body fat</option>
-                <option>Build muscle</option>
-                <option>Get stronger</option>
-                <option>Train for HYROX or an event</option>
-                <option>General health and consistency</option>
-              </select>
-              <p class="err" id="e-goal" aria-live="polite"></p>
+              <label for="f-goal">Describe your goal in your own words</label>
+<textarea id="f-goal" name="Your goal" required placeholder="The honest version is the useful one."></textarea>
+              <p class="err" id="e-f-goal" aria-live="polite"></p>
             </div>
             <div class="field">
-              <label for="f-gym">Where do you train</label>
-              <select id="f-gym" name="gym" required>
-                <option value="">Choose one</option>
-                <option>Commercial gym</option>
-                <option>Home gym</option>
-                <option>Both</option>
-                <option>Not training anywhere right now</option>
-              </select>
-              <p class="err" id="e-gym" aria-live="polite"></p>
-            </div>
-            <div class="field">
-              <label for="f-days">Days a week you can realistically train</label>
-              <select id="f-days" name="days" required>
-                <option value="">Choose one</option>
-                <option>2</option><option>3</option><option>4</option><option>5 or more</option>
-              </select>
-              <p class="err" id="e-days" aria-live="polite"></p>
-            </div>
-            <div class="field">
-              <label for="f-exp">How long have you been training</label>
-              <select id="f-exp" name="experience" required>
-                <option value="">Choose one</option>
-                <option>Just starting</option>
-                <option>Under a year</option>
-                <option>One to three years</option>
-                <option>Three years or more</option>
-              </select>
-              <p class="err" id="e-exp" aria-live="polite"></p>
+              <label for="f-why">Why is this important to you right now</label>
+<textarea id="f-why" name="Why now" required></textarea>
+              <p class="err" id="e-f-why" aria-live="polite"></p>
             </div>
           </fieldset>
 
           <fieldset class="step" data-step="3" hidden>
-            <legend>Your story</legend>
-            <div class="field">
-              <label for="f-stopped">What has stopped you before</label>
-              <textarea id="f-stopped" name="what_stopped_you" required placeholder="The honest version is the useful one."></textarea>
-              <p class="err" id="e-stopped" aria-live="polite"></p>
+            <legend>Your training history</legend>
+            <div class="field" role="group" aria-labelledby="lbl-experiencelevel">
+              <span class="legend-inline" id="lbl-experiencelevel">How would you describe your experience level</span>
+            <div class="chips" role="radiogroup" aria-labelledby="lbl-experiencelevel">
+              <label class="chip-opt"><input type="radio" name="Experience level" value="Beginner" required><span>Beginner</span></label>
+              <label class="chip-opt"><input type="radio" name="Experience level" value="Intermediate"><span>Intermediate</span></label>
+              <label class="chip-opt"><input type="radio" name="Experience level" value="Advanced"><span>Advanced</span></label>
+            </div>
+              <p class="err" id="e-experiencelevel" aria-live="polite"></p>
+            </div>
+            <div class="field" role="group" aria-labelledby="lbl-followedaprogram">
+              <span class="legend-inline" id="lbl-followedaprogram">Have you followed a training program before</span>
+            <div class="chips" role="radiogroup" aria-labelledby="lbl-followedaprogrambefore">
+              <label class="chip-opt"><input type="radio" name="Followed a program before" value="Yes" required><span>Yes</span></label>
+              <label class="chip-opt"><input type="radio" name="Followed a program before" value="No"><span>No</span></label>
+            </div>
+              <p class="err" id="e-followedaprogram" aria-live="polite"></p>
             </div>
             <div class="field">
-              <label for="f-notes">Anything else I should know</label>
-              <textarea id="f-notes" name="notes" placeholder="Injuries, schedule, previous coaching. Optional."></textarea>
+              <label for="f-worked">What has worked for you in the past</label>
+<textarea id="f-worked" name="What has worked" required></textarea>
+              <p class="err" id="e-f-worked" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-notworked">What has not worked for you</label>
+<textarea id="f-notworked" name="What has not worked" required></textarea>
+              <p class="err" id="e-f-notworked" aria-live="polite"></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="4" hidden>
+            <legend>Your schedule</legend>
+            <div class="field" role="group" aria-labelledby="lbl-dayspweek">
+              <span class="legend-inline" id="lbl-dayspweek">How many days per week can you train</span>
+            <div class="chips" role="radiogroup" aria-labelledby="lbl-daysperweek">
+              <label class="chip-opt"><input type="radio" name="Days per week" value="1" required><span>1</span></label>
+              <label class="chip-opt"><input type="radio" name="Days per week" value="2"><span>2</span></label>
+              <label class="chip-opt"><input type="radio" name="Days per week" value="3"><span>3</span></label>
+              <label class="chip-opt"><input type="radio" name="Days per week" value="4"><span>4</span></label>
+              <label class="chip-opt"><input type="radio" name="Days per week" value="5"><span>5</span></label>
+            </div>
+              <p class="err" id="e-dayspweek" aria-live="polite"></p>
+            </div>
+            <div class="field" role="group" aria-labelledby="lbl-sessionlength">
+              <span class="legend-inline" id="lbl-sessionlength">How long can your workouts be</span>
+            <div class="chips" role="radiogroup" aria-labelledby="lbl-sessionlength">
+              <label class="chip-opt"><input type="radio" name="Session length" value="30 min" required><span>30 min</span></label>
+              <label class="chip-opt"><input type="radio" name="Session length" value="45 min"><span>45 min</span></label>
+              <label class="chip-opt"><input type="radio" name="Session length" value="60 min"><span>60 min</span></label>
+              <label class="chip-opt"><input type="radio" name="Session length" value="90 min"><span>90 min</span></label>
+            </div>
+              <p class="err" id="e-sessionlength" aria-live="polite"></p>
+            </div>
+            <div class="field" role="group" aria-labelledby="lbl-whereyoutrain">
+              <span class="legend-inline" id="lbl-whereyoutrain">Where will you train</span>
+            <div class="chips" role="radiogroup" aria-labelledby="lbl-whereyoutrain">
+              <label class="chip-opt"><input type="radio" name="Where you train" value="Gym" required><span>Gym</span></label>
+              <label class="chip-opt"><input type="radio" name="Where you train" value="Home"><span>Home</span></label>
+              <label class="chip-opt"><input type="radio" name="Where you train" value="Both"><span>Both</span></label>
+            </div>
+              <p class="err" id="e-whereyoutrain" aria-live="polite"></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="5" hidden>
+            <legend>Injuries and health</legend>
+            <div class="field">
+              <label for="f-injury">Do you have any current injuries or pain</label>
+<textarea id="f-injury" name="Current injuries or pain" required placeholder="Write none if there are none."></textarea>
+              <p class="err" id="e-f-injury" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-past">Have you had any past injuries</label>
+<textarea id="f-past" name="Past injuries" required placeholder="Write none if there are none."></textarea>
+              <p class="err" id="e-f-past" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-discomfort">Are there any movements that cause discomfort</label>
+<input id="f-discomfort" name="Movements that cause discomfort" type="text" required>
+              <p class="err" id="e-f-discomfort" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-medical">Any medical conditions or medication your coach should know about</label>
+<textarea id="f-medical" name="Medical conditions or medication" required placeholder="Write none if there are none."></textarea>
+              <p class="err" id="e-f-medical" aria-live="polite"></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="6" hidden>
+            <legend>Your life and your food</legend>
+            <div class="field">
+              <label for="f-job">What is your job</label>
+<input id="f-job" name="Job" type="text" required>
+              <p class="err" id="e-f-job" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-sleep">How many hours do you sleep per night</label>
+<select id="f-sleep" name="Sleep per night" required>
+                <option value="">Choose one</option>
+                <option>Less than 5</option>
+                <option>5-6</option>
+                <option>6-7</option>
+                <option>7-8</option>
+                <option>More than 8</option>
+              </select>
+              <p class="err" id="e-f-sleep" aria-live="polite"></p>
+            </div>
+            <div class="field" role="group" aria-labelledby="lbl-stresslevel">
+              <span class="legend-inline" id="lbl-stresslevel">Stress level</span>
+            <div class="scale-wrap">
+              <div class="scale">
+                <label class="chip-opt scale-opt"><input type="radio" name="Stress level" value="1" required><span>1</span></label>
+                <label class="chip-opt scale-opt"><input type="radio" name="Stress level" value="2"><span>2</span></label>
+                <label class="chip-opt scale-opt"><input type="radio" name="Stress level" value="3"><span>3</span></label>
+                <label class="chip-opt scale-opt"><input type="radio" name="Stress level" value="4"><span>4</span></label>
+                <label class="chip-opt scale-opt"><input type="radio" name="Stress level" value="5"><span>5</span></label>
+                <label class="chip-opt scale-opt"><input type="radio" name="Stress level" value="6"><span>6</span></label>
+                <label class="chip-opt scale-opt"><input type="radio" name="Stress level" value="7"><span>7</span></label>
+                <label class="chip-opt scale-opt"><input type="radio" name="Stress level" value="8"><span>8</span></label>
+                <label class="chip-opt scale-opt"><input type="radio" name="Stress level" value="9"><span>9</span></label>
+                <label class="chip-opt scale-opt"><input type="radio" name="Stress level" value="10"><span>10</span></label>
+              </div>
+              <div class="scale-ends" aria-hidden="true">
+                <span class="scale-end">Completely relaxed</span>
+                <span class="scale-end">Extremely stressed</span>
+              </div>
+            </div>
+              <p class="err" id="e-stresslevel" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-steps">Daily steps <span class="hint">(optional)</span></label>
+<input id="f-steps" name="Daily steps" type="text" placeholder="Skip if you do not track them">
+              <p class="err" id="e-f-steps" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-diet">Any dietary restrictions</label>
+<input id="f-diet" name="Dietary restrictions" type="text" required placeholder="Write none if there are none.">
+              <p class="err" id="e-f-diet" aria-live="polite"></p>
+            </div>
+            <div class="field" role="group" aria-labelledby="lbl-nutritionstruggle">
+              <span class="legend-inline" id="lbl-nutritionstruggle">What is your biggest struggle with nutrition <span class="hint">(tick all that apply)</span></span>
+            <div class="checks" data-required-group="1">
+              <label class="check-opt"><input type="checkbox" name="Nutrition struggle" value="I overeat"><span>I overeat</span></label>
+              <label class="check-opt"><input type="checkbox" name="Nutrition struggle" value="I struggle with consistency"><span>I struggle with consistency</span></label>
+              <label class="check-opt"><input type="checkbox" name="Nutrition struggle" value="I have cravings"><span>I have cravings</span></label>
+              <label class="check-opt"><input type="checkbox" name="Nutrition struggle" value="I don’t eat enough / skip meals"><span>I don’t eat enough / skip meals</span></label>
+              <label class="check-opt"><input type="checkbox" name="Nutrition struggle" value="I don’t have a consistent eating routine"><span>I don’t have a consistent eating routine</span></label>
+              <label class="check-opt"><input type="checkbox" name="Nutrition struggle" value="I don’t know what to eat"><span>I don’t know what to eat</span></label>
+              <label class="check-opt"><input type="checkbox" name="Nutrition struggle" value="No major issues"><span>No major issues</span></label>
+            </div>
+              <p class="err" id="e-nutritionstruggle" aria-live="polite"></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="7" hidden>
+            <legend>Working together</legend>
+            <div class="field">
+              <label for="f-expect">What do you expect from me as your coach</label>
+<textarea id="f-expect" name="What you expect from your coach" required></textarea>
+              <p class="err" id="e-f-expect" aria-live="polite"></p>
+            </div>
+            <div class="field" role="group" aria-labelledby="lbl-weeklyweight">
+              <span class="legend-inline" id="lbl-weeklyweight">Are you comfortable sending weekly weight updates</span>
+            <div class="chips" role="radiogroup" aria-labelledby="lbl-weeklyweightupdates">
+              <label class="chip-opt"><input type="radio" name="Weekly weight updates" value="Yes" required><span>Yes</span></label>
+              <label class="chip-opt"><input type="radio" name="Weekly weight updates" value="No"><span>No</span></label>
+            </div>
+              <p class="err" id="e-weeklyweight" aria-live="polite"></p>
+            </div>
+            <div class="field" role="group" aria-labelledby="lbl-progressphotos">
+              <span class="legend-inline" id="lbl-progressphotos">Are you comfortable sending progress photos</span>
+            <div class="chips" role="radiogroup" aria-labelledby="lbl-progressphotos">
+              <label class="chip-opt"><input type="radio" name="Progress photos" value="Yes" required><span>Yes</span></label>
+              <label class="chip-opt"><input type="radio" name="Progress photos" value="No"><span>No</span></label>
+            </div>
+              <p class="err" id="e-progressphotos" aria-live="polite"></p>
+            </div>
+            <div class="field" role="group" aria-labelledby="lbl-howyoufoundme">
+              <span class="legend-inline" id="lbl-howyoufoundme">How did you find me <span class="hint">(tick all that apply)</span></span>
+            <div class="checks" data-required-group="1">
+              <label class="check-opt"><input type="checkbox" name="How you found me" value="Instagram"><span>Instagram</span></label>
+              <label class="check-opt"><input type="checkbox" name="How you found me" value="Referral from a friend"><span>Referral from a friend</span></label>
+              <label class="check-opt"><input type="checkbox" name="How you found me" value="Facebook"><span>Facebook</span></label>
+              <label class="check-opt"><input type="checkbox" name="How you found me" value="Other"><span>Other</span></label>
+            </div>
+              <p class="err" id="e-howyoufoundme" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-found-other">If other, where <span class="hint">(optional)</span></label>
+<input id="f-found-other" name="Where else you found me" type="text">
+              <p class="err" id="e-f-found-other" aria-live="polite"></p>
             </div>
             <div class="field">
               <label class="consent" for="f-consent">
-                <input id="f-consent" name="consent" type="checkbox" value="yes" required>
-                <span>I am happy for Dalius to contact me about this application and to hold what I have written here while we are in touch.</span>
+                <input id="f-consent" name="Consent" type="checkbox" value="yes" required>
+                <span>I am happy for Dalius to contact me about this application, and to hold what I have written here, including the health details above, while we are in touch.</span>
               </label>
               <p class="err" id="e-consent" aria-live="polite"></p>
               <p class="fine"><a href="privacy.html">What happens to what you send</a></p>
@@ -1520,7 +1726,8 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
   var done    = document.getElementById("formDone");
   var keyEl   = document.getElementById("accessKey");
   var reduce  = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var TITLES  = ["About you", "Your training", "Your story"];
+  var TITLES  = ["About you", "Your goal", "Training history", "Your schedule",
+                 "Injuries and health", "Life and food", "Working together"];
   var current = 0;
   var openedAt = Date.now();
 
@@ -1566,6 +1773,21 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
       }
       if (el.checkValidity()) { clearError(el); }
       else { markError(el); ok = false; first = first || el; }
+    });
+
+    // A checkbox group cannot use the required attribute: that would demand
+    // every box, not one of them. Validate the container instead, after the
+    // per-field pass so this verdict is the one that sticks.
+    Array.prototype.forEach.call(step.querySelectorAll("[data-required-group]"), function (box) {
+      var holder = box.closest(".field");
+      var e = holder ? holder.querySelector(".err") : null;
+      if (box.querySelector('input[type="checkbox"]:checked')) {
+        if (e) e.textContent = "";
+      } else {
+        if (e) e.textContent = "Tick at least one.";
+        ok = false;
+        first = first || box.querySelector('input[type="checkbox"]');
+      }
     });
 
     if (first) { try { first.focus({ preventScroll: false }); } catch (e) { first.focus(); } }
@@ -1668,7 +1890,10 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
     }
 
     var data = {};
-    new FormData(form).forEach(function (v, k) { if (k !== "botcheck") data[k] = v; });
+    new FormData(form).forEach(function (v, k) {
+      if (k === "botcheck") return;
+      data[k] = (data[k] === undefined) ? v : data[k] + ", " + v;  // tick-all-that-apply
+    });
 
     sendBtn.disabled = true;
     sendBtn.textContent = "Sending";
