@@ -494,8 +494,75 @@ p { text-wrap: pretty; }
    ============================================================ */
 .finale {
   position: relative; background: #0A0A0A; color: var(--paper);
-  padding-block: clamp(var(--s-800), 12vw, 160px); text-align: center; overflow: hidden;
+  padding-block: clamp(var(--s-700), 9vw, var(--s-900)); overflow: hidden;
 }
+.apply-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-700); align-items: center; }
+.apply-points { margin-top: var(--s-400); display: flex; flex-direction: column; gap: var(--s-100); }
+.apply-points li { display: flex; gap: var(--s-100); align-items: flex-start; font-size: 1rem; color: var(--soft-paper); }
+.apply-points svg { width: 20px; height: 20px; margin-top: 2px; flex: none; stroke: var(--volt); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* --- application form --- */
+.form-card {
+  background: var(--surface); color: var(--ink);
+  border-radius: var(--r-lg); padding: var(--s-500);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25), 0 30px 70px -30px rgba(0,0,0,0.8);
+}
+.form-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-200); margin-bottom: var(--s-200); }
+.form-step-label { font-family: var(--display); font-size: 0.75rem; font-weight: 600; font-stretch: 84%; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.progress { height: 3px; background: rgba(16,16,16,0.12); border-radius: var(--r-pill); overflow: hidden; margin-bottom: var(--s-400); }
+.progress i { display: block; height: 100%; background: var(--volt); border-radius: var(--r-pill); transform-origin: left; scale: 0.3333 1; transition-property: scale; transition-duration: 420ms; transition-timing-function: var(--ease-out); }
+.js .step[hidden] { display: none; }
+.js .btn[hidden] { display: none; }
+form[hidden], .form-done[hidden] { display: none; }
+html:not(.js) #nextBtn, html:not(.js) #backBtn,
+html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
+.step { display: flex; flex-direction: column; gap: var(--s-300); border: 0; }
+.step + .step { margin-top: var(--s-400); }
+.step legend { font-family: var(--display); font-size: 1.25rem; font-weight: 800; font-stretch: 106%; text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: var(--s-200); }
+.js .step legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.field { display: flex; flex-direction: column; gap: var(--s-75); }
+.field label, .legend-inline { font-family: var(--display); font-size: 0.8125rem; font-weight: 600; font-stretch: 88%; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink); }
+.field input, .field select, .field textarea {
+  font-family: var(--display); font-size: 1rem; font-stretch: 100%; color: var(--ink);
+  background: #FFFFFF; border: 1px solid rgba(16,16,16,0.20); border-radius: var(--r-sm);
+  padding: var(--s-100) var(--s-200); min-height: 48px; width: 100%;
+  transition-property: border-color, box-shadow; transition-duration: 150ms; transition-timing-function: var(--ease-out);
+}
+.field textarea { min-height: 96px; resize: vertical; line-height: 1.5; padding-block: var(--s-100); }
+.field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 18px) 21px, calc(100% - 13px) 21px; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: var(--s-500); }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: rgba(16,16,16,0.42); }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; border-color: var(--ink); }
+.field [aria-invalid="true"] { border-color: #B3261E; }
+.err { font-family: var(--display); font-size: 0.8125rem; font-stretch: 92%; color: #B3261E; min-height: 0; }
+.err:empty { display: none; }
+.plan-pick { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-100); }
+.opt { position: relative; }
+.opt input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.opt span {
+  display: block; padding: var(--s-200); border: 1px solid rgba(16,16,16,0.20); border-radius: var(--r-sm);
+  background: #FFFFFF; min-height: 48px; font-size: 0.9375rem;
+  transition-property: border-color, background-color, box-shadow; transition-duration: 150ms; transition-timing-function: var(--ease-out);
+}
+.opt b { display: block; font-family: var(--display); font-weight: 700; font-stretch: 96%; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8125rem; }
+.opt em { font-style: normal; color: var(--ink-soft); font-size: 0.875rem; }
+.opt input:hover + span { border-color: rgba(16,16,16,0.45); }
+.opt input:checked + span { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink), inset 0 0 0 5px var(--volt); background: #FFFFFF; }
+.opt input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+.consent { display: flex; gap: var(--s-100); align-items: flex-start; font-size: 0.875rem; color: var(--ink-soft); }
+.consent input { width: 20px; height: 20px; margin-top: 2px; flex: none; accent-color: var(--ink); }
+.consent a { color: var(--ink); }
+.form-nav { display: flex; gap: var(--s-100); align-items: center; margin-top: var(--s-400); flex-wrap: wrap; }
+.form-nav .btn { flex: 1 1 auto; }
+.form-foot { margin-top: var(--s-200); font-size: 0.8125rem; color: var(--ink-soft); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-status { margin-top: var(--s-300); font-size: 0.9375rem; }
+.form-status:empty { display: none; }
+.form-status.is-error { color: #B3261E; }
+.form-done { text-align: left; }
+.form-done h3 { font-size: 1.5rem; font-stretch: 106%; margin-bottom: var(--s-200); }
+.form-done p { color: var(--ink-soft); }
+.form-done .tickbig { width: 48px; height: 48px; border-radius: var(--r-pill); background: var(--volt); display: flex; align-items: center; justify-content: center; margin-bottom: var(--s-300); }
+.form-done .tickbig svg { width: 26px; height: 26px; stroke: var(--ink); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 .finale-bg {
   position: absolute; inset: 0; z-index: 0;
   width: 100%; height: 100%;
@@ -509,9 +576,9 @@ p { text-wrap: pretty; }
     linear-gradient(180deg, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.58) 45%, rgba(10,10,10,0.90) 100%);
 }
 .finale > *:not(.finale-bg) { position: relative; z-index: 2; }
-.finale h2 { font-size: clamp(2.25rem, 5.6vw, 4.5rem); }
-.finale .lede { margin: var(--s-300) auto 0; color: var(--soft-paper); font-size: 1.25rem; max-width: 52ch; }
-.finale .hero-cta { justify-content: center; }
+.finale h2 { font-size: clamp(2.25rem, 4.4vw, 3.75rem); }
+.finale .lede { margin-top: var(--s-300); color: var(--soft-paper); font-size: 1.25rem; max-width: 46ch; }
+
 
 .foot { background: var(--ink); color: var(--paper); padding-block: var(--s-500); }
 .foot-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-300); }
@@ -573,6 +640,7 @@ p { text-wrap: pretty; }
   .plans { grid-template-columns: 1fr; }
   .fit-grid { grid-template-columns: 1fr; }
   .track-alt-steps { grid-template-columns: 1fr; }
+  .apply-grid { grid-template-columns: 1fr; gap: var(--s-500); }
   .mission-copy { max-width: 100%; }
 }
 @media (max-width: 620px) {
@@ -586,6 +654,8 @@ p { text-wrap: pretty; }
   .split-w { grid-column: 2; }
   .split-b { grid-column: 2; }
   .plan { padding: var(--s-400); }
+  .form-card { padding: var(--s-400) var(--s-300); }
+  .plan-pick { grid-template-columns: 1fr; }
   .finale .btn { width: 100%; }
   .foot-top { flex-direction: column; align-items: flex-start; }
 }
@@ -621,7 +691,7 @@ p { text-wrap: pretty; }
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
-      <a class="btn btn-primary btn-sm" href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" target="_blank" rel="noopener">Apply for a spot</a>
+      <a class="btn btn-primary btn-sm" href="#apply" data-plan="coaching">Apply for a spot</a>
       <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
         <span></span><span></span>
       </button>
@@ -633,7 +703,7 @@ p { text-wrap: pretty; }
     <a href="#included">Included</a>
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
-    <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" target="_blank" rel="noopener">Apply for a spot</a>
+    <a class="btn btn-primary" href="#apply" data-plan="coaching">Apply for a spot</a>
   </div>
 </header>
 
@@ -647,7 +717,7 @@ p { text-wrap: pretty; }
       <h1 id="hero-h" class="enter" style="--i:1">Stop<br>starting<br><span class="knock">over.</span></h1>
       <p class="hero-lede enter" style="--i:2">You already know what to do. The problem was never information &mdash; it was <strong>consistency</strong>. That is the part I build with you.</p>
       <div class="hero-cta enter" style="--i:3">
-        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" target="_blank" rel="noopener">Apply for a spot</a>
+        <a class="btn btn-primary" href="#apply" data-plan="coaching">Apply for a spot</a>
         <a class="btn btn-ghost" href="#included">See what is included</a>
       </div>
       <div class="stats enter" style="--i:4">
@@ -920,7 +990,7 @@ p { text-wrap: pretty; }
             <li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Progress tracking sheet</li>
           </ul>
           <div class="plan-foot">
-            <a class="btn btn-ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" target="_blank" rel="noopener">Get the program</a>
+            <a class="btn btn-ghost" href="#apply" data-plan="program">Get the program</a>
             <p class="fine">Complete a short onboarding form.</p>
           </div>
         </article>
@@ -940,7 +1010,7 @@ p { text-wrap: pretty; }
             <li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Program adjusted every 4 weeks around your progress</li>
           </ul>
           <div class="plan-foot">
-            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" target="_blank" rel="noopener">Apply for a spot</a>
+            <a class="btn btn-primary" href="#apply" data-plan="coaching">Apply for a spot</a>
             <p class="fine">Complete a short form and I will reach out to book your call.</p>
             <div class="pay">
               <span class="pay-item"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Card</span>
@@ -1039,19 +1109,151 @@ p { text-wrap: pretty; }
     </div>
   </section>
 
-  <!-- ===================== FINAL CTA ===================== -->
-  <section class="finale on-ink" aria-labelledby="end-h">
+  <!-- ===================== APPLY ===================== -->
+  <section class="finale on-ink" id="apply" aria-labelledby="apply-h">
     <img class="finale-bg" src="img/hyroxRUN-1000.webp"
          srcset="img/hyroxRUN-1000.webp 1000w, img/hyroxRUN-1800.webp 1800w"
          sizes="100vw" width="1800" height="2400" loading="lazy" decoding="async" alt="">
-    <div class="shell">
-      <span class="chip reveal">Early access is open</span>
-      <h2 id="end-h" class="reveal" style="--i:1; margin-top: var(--s-300)">Ready to stop starting over?</h2>
-      <p class="lede reveal" style="--i:2">Full coaching from $200 AUD a month, or the program on its own for $79. The form takes five minutes and costs nothing.</p>
-      <div class="hero-cta reveal" style="--i:3">
-        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform" target="_blank" rel="noopener">Apply now</a>
+    <div class="shell apply-grid">
+
+      <div class="apply-copy">
+        <span class="chip reveal">Early access &middot; 3 spots</span>
+        <h2 id="apply-h" class="reveal" style="--i:1; margin-top: var(--s-300)">Ready to stop starting over?</h2>
+        <p class="lede reveal" style="--i:2">Tell me where you are now and what has got in the way before. If it looks like a fit, I will come back to you to book your call.</p>
+        <ul class="apply-points reveal" style="--i:3">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Takes about five minutes</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Free, and it does not ask for a card</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Read by me, not sorted by a robot</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Online coaching, available worldwide</li>
+        </ul>
       </div>
-      <p class="fine reveal" style="--i:4; color: var(--soft-paper); margin-top: var(--s-300)">Online coaching &middot; available worldwide</p>
+
+      <div class="form-card reveal" style="--i:1">
+        <form id="applyForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <!-- Free, unlimited endpoint. Get an access key at https://web3forms.com using the
+               address that should receive applications. The key is public by design and safe
+               to commit. Until it is filled in, the form refuses to submit and points people
+               at the old Google Form rather than failing silently. -->
+          <input type="hidden" name="access_key" id="accessKey" value="REPLACE_WITH_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="DB Coaching - new application">
+          <input type="hidden" name="from_name" value="DB Coaching website">
+          <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+
+          <div class="form-head">
+            <span class="form-step-label" id="stepLabel">Step 1 of 3 &middot; About you</span>
+          </div>
+          <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+          <fieldset class="step" data-step="1">
+            <legend>About you</legend>
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+              <p class="err" id="e-name" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+              <p class="err" id="e-email" aria-live="polite"></p>
+            </div>
+            <div class="field" role="group" aria-labelledby="planLabel">
+              <span class="legend-inline" id="planLabel">What are you applying for</span>
+              <div class="plan-pick">
+                <label class="opt"><input type="radio" name="option" value="Full coaching, $200 AUD per month" required>
+                  <span><b>Full coaching</b><em>$200 AUD / month</em></span></label>
+                <label class="opt"><input type="radio" name="option" value="Program only, $79 AUD one time">
+                  <span><b>Program only</b><em>$79 AUD one time</em></span></label>
+              </div>
+              <p class="err" id="e-option" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-where">Where are you based <span class="muted" style="text-transform:none;letter-spacing:0;font-weight:400">(for your time zone)</span></label>
+              <input id="f-where" name="location" type="text" placeholder="City or country">
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="2" hidden>
+            <legend>Your training</legend>
+            <div class="field">
+              <label for="f-goal">Your main goal</label>
+              <select id="f-goal" name="goal" required>
+                <option value="">Choose one</option>
+                <option>Lose body fat</option>
+                <option>Build muscle</option>
+                <option>Get stronger</option>
+                <option>Train for HYROX or an event</option>
+                <option>General health and consistency</option>
+              </select>
+              <p class="err" id="e-goal" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-gym">Where do you train</label>
+              <select id="f-gym" name="gym" required>
+                <option value="">Choose one</option>
+                <option>Commercial gym</option>
+                <option>Home gym</option>
+                <option>Both</option>
+                <option>Not training anywhere right now</option>
+              </select>
+              <p class="err" id="e-gym" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-days">Days a week you can realistically train</label>
+              <select id="f-days" name="days" required>
+                <option value="">Choose one</option>
+                <option>2</option><option>3</option><option>4</option><option>5 or more</option>
+              </select>
+              <p class="err" id="e-days" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-exp">How long have you been training</label>
+              <select id="f-exp" name="experience" required>
+                <option value="">Choose one</option>
+                <option>Just starting</option>
+                <option>Under a year</option>
+                <option>One to three years</option>
+                <option>Three years or more</option>
+              </select>
+              <p class="err" id="e-exp" aria-live="polite"></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="3" hidden>
+            <legend>Your story</legend>
+            <div class="field">
+              <label for="f-stopped">What has stopped you before</label>
+              <textarea id="f-stopped" name="what_stopped_you" required placeholder="The honest version is the useful one."></textarea>
+              <p class="err" id="e-stopped" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-notes">Anything else I should know</label>
+              <textarea id="f-notes" name="notes" placeholder="Injuries, schedule, previous coaching. Optional."></textarea>
+            </div>
+            <div class="field">
+              <label class="consent" for="f-consent">
+                <input id="f-consent" name="consent" type="checkbox" value="yes" required>
+                <span>I am happy for Dalius to contact me about this application and to hold what I have written here while we are in touch.</span>
+              </label>
+              <p class="err" id="e-consent" aria-live="polite"></p>
+            </div>
+          </fieldset>
+
+          <div class="form-nav">
+            <button class="btn btn-ghost" type="button" id="backBtn" hidden>Back</button>
+            <button class="btn btn-primary" type="button" id="nextBtn">Continue</button>
+            <button class="btn btn-primary" type="submit" id="sendBtn" hidden>Send application</button>
+          </div>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-foot">No card, no charge. Applying does not commit you to anything.</p>
+        </form>
+
+        <div class="form-done" id="formDone" hidden>
+          <div class="tickbig" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></div>
+          <h3>Application sent</h3>
+          <p>It is with Dalius. If it looks like a fit you will hear back to book your 20 minute call. Check your spam folder if nothing arrives within a couple of days.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
@@ -1264,6 +1466,213 @@ p { text-wrap: pretty; }
   window.addEventListener("resize", onScroll, { passive: true });
   } catch (err) {
     failOpen();
+  }
+})();
+</script>
+<script>
+(function () {
+  "use strict";
+  var form = document.getElementById("applyForm");
+  if (!form) return;
+
+  var FALLBACK = "https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform";
+  var steps   = Array.prototype.slice.call(form.querySelectorAll(".step"));
+  var nextBtn = document.getElementById("nextBtn");
+  var backBtn = document.getElementById("backBtn");
+  var sendBtn = document.getElementById("sendBtn");
+  var bar     = document.getElementById("progressBar");
+  var label   = document.getElementById("stepLabel");
+  var status  = document.getElementById("formStatus");
+  var done    = document.getElementById("formDone");
+  var keyEl   = document.getElementById("accessKey");
+  var reduce  = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var TITLES  = ["About you", "Your training", "Your story"];
+  var current = 0;
+  var openedAt = Date.now();
+
+  function errEl(el) { var f = el.closest(".field"); return f ? f.querySelector(".err") : null; }
+
+  function messageFor(el) {
+    if (el.type === "checkbox") return "Tick this to continue.";
+    if (el.type === "radio")    return "Choose one to continue.";
+    if (el.type === "email")    return el.value.trim() ? "That address does not look right." : "I need an email to reply to.";
+    if (el.tagName === "SELECT") return "Choose one from the list.";
+    if (el.tagName === "TEXTAREA") return "A sentence or two is enough.";
+    return "This one is needed.";
+  }
+
+  function clearError(el) {
+    var e = errEl(el);
+    if (e) e.textContent = "";
+    el.removeAttribute("aria-invalid");
+  }
+
+  function markError(el) {
+    var e = errEl(el);
+    if (e) {
+      e.textContent = messageFor(el);
+      if (e.id) el.setAttribute("aria-describedby", e.id);
+    }
+    el.setAttribute("aria-invalid", "true");
+  }
+
+  function validate(step) {
+    var ok = true, first = null, seen = {};
+    var fields = Array.prototype.slice.call(step.querySelectorAll("input, select, textarea"))
+      .filter(function (el) { return el.name && el.name !== "botcheck"; });
+
+    fields.forEach(function (el) {
+      if (el.type === "radio") {
+        if (seen[el.name]) return;
+        seen[el.name] = true;
+        var group = form.querySelectorAll('input[name="' + el.name + '"]'), picked = false;
+        Array.prototype.forEach.call(group, function (r) { if (r.checked) picked = true; });
+        if (!picked) { markError(el); ok = false; first = first || el; } else { clearError(el); }
+        return;
+      }
+      if (el.checkValidity()) { clearError(el); }
+      else { markError(el); ok = false; first = first || el; }
+    });
+
+    if (first) { try { first.focus({ preventScroll: false }); } catch (e) { first.focus(); } }
+    return ok;
+  }
+
+  function show(i) {
+    current = Math.max(0, Math.min(steps.length - 1, i));
+    steps.forEach(function (st, n) { st.hidden = n !== current; });
+    backBtn.hidden = current === 0;
+    nextBtn.hidden = current === steps.length - 1;
+    sendBtn.hidden = current !== steps.length - 1;
+    bar.style.scale = ((current + 1) / steps.length).toFixed(4) + " 1";
+    label.textContent = "Step " + (current + 1) + " of " + steps.length + " \u00B7 " + TITLES[current];
+    status.textContent = "";
+    status.classList.remove("is-error");
+  }
+
+  function keepCardInView() {
+    var card = form.closest(".form-card");
+    if (!card) return;
+    var top = card.getBoundingClientRect().top;
+    if (top < 72 || top > window.innerHeight - 160) {
+      card.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
+    }
+  }
+
+  function focusFirstIn(step) {
+    var el = step.querySelector("input:not([type=hidden]), select, textarea");
+    if (el) { try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); } }
+  }
+
+  function fail(msg, withFallback) {
+    status.classList.add("is-error");
+    status.textContent = msg + " ";
+    if (withFallback) {
+      var a = document.createElement("a");
+      a.href = FALLBACK; a.target = "_blank"; a.rel = "noopener";
+      a.textContent = "Use the old application form.";
+      status.appendChild(a);
+    }
+  }
+
+  nextBtn.addEventListener("click", function () {
+    if (!validate(steps[current])) return;
+    show(current + 1);
+    keepCardInView();
+    focusFirstIn(steps[current]);
+  });
+
+  backBtn.addEventListener("click", function () {
+    show(current - 1);
+    keepCardInView();
+    focusFirstIn(steps[current]);
+  });
+
+  form.addEventListener("input", function (ev) {
+    var el = ev.target;
+    if (el.name && el.checkValidity && el.checkValidity()) clearError(el);
+  });
+  form.addEventListener("change", function (ev) {
+    var el = ev.target;
+    if (el.type === "radio" || el.type === "checkbox" || el.tagName === "SELECT") {
+      if (el.type === "radio" ? true : el.checkValidity()) clearError(el);
+    }
+  });
+
+  // Pricing buttons pre-select the matching option.
+  Array.prototype.forEach.call(document.querySelectorAll("a[data-plan]"), function (a) {
+    a.addEventListener("click", function () {
+      var wantProgram = a.getAttribute("data-plan") === "program";
+      var radios = form.querySelectorAll('input[name="option"]');
+      var pick = radios[wantProgram ? 1 : 0];
+      if (pick) { pick.checked = true; clearError(pick); }
+      show(0);
+    });
+  });
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+
+    for (var i = 0; i < steps.length; i++) {
+      var wasHidden = steps[i].hidden;
+      steps[i].hidden = false;
+      var ok = validate(steps[i]);
+      steps[i].hidden = wasHidden;
+      if (!ok) { show(i); keepCardInView(); return; }
+    }
+
+    if (form.botcheck && form.botcheck.value) return;                 // honeypot
+    if (Date.now() - openedAt < 3000) {                               // time trap
+      fail("Give it another moment, then send.");
+      return;
+    }
+
+    var key = keyEl ? keyEl.value : "";
+    if (!key || key.indexOf("REPLACE_WITH") === 0) {
+      fail("The form is not connected to an inbox yet, so this would not reach anyone.", true);
+      return;
+    }
+
+    var data = {};
+    new FormData(form).forEach(function (v, k) { if (k !== "botcheck") data[k] = v; });
+
+    sendBtn.disabled = true;
+    sendBtn.textContent = "Sending";
+    status.textContent = "";
+    status.classList.remove("is-error");
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(data)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.success) {
+          form.hidden = true;
+          done.hidden = false;
+          done.setAttribute("tabindex", "-1");
+          done.focus();
+          keepCardInView();
+        } else {
+          fail((res && res.message) || "That did not send.", true);
+        }
+      })
+      .catch(function () {
+        fail("That did not send. Check your connection and try again.", true);
+      })
+      .then(function () {
+        sendBtn.disabled = false;
+        sendBtn.textContent = "Send application";
+      });
+  });
+
+  try {
+    show(0);
+  } catch (err) {
+    steps.forEach(function (st) { st.hidden = false; });
+    sendBtn.hidden = false;
+    nextBtn.hidden = true;
   }
 })();
 </script>
