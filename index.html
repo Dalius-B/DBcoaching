@@ -83,9 +83,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  font-family: var(--read);
-  font-optical-sizing: auto;
+  font-family: var(--display);
   font-weight: 400;
+  font-stretch: 100%;
   font-size: 1.125rem;      /* 18px */
   line-height: 1.6;
   color: var(--ink);
@@ -107,6 +107,12 @@ h1, h2, h3, .display {
 }
 p { text-wrap: pretty; }
 
+/* Newsreader stays on the editorial voice: the hero deck, section intros,
+   the mission line, the pull quote and the coach's own story. Everything
+   functional and small is set in Archivo. */
+.lede, .body-text, .hero-lede, .mission-copy, .pull {
+  font-family: var(--read); font-optical-sizing: auto;
+}
 .lede, .body-text { max-width: 62ch; }
 .body-text + .body-text { margin-top: var(--s-200); }
 
@@ -426,7 +432,7 @@ p { text-wrap: pretty; }
 .plan--featured { background: var(--ink); color: var(--paper); box-shadow: 0 2px 4px rgba(16,16,16,0.10), 0 24px 60px -28px rgba(16,16,16,0.65); }
 .plan-name { font-family: var(--display); font-size: 1.5rem; font-weight: 800; font-stretch: 108%; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1; }
 .plan-price { font-family: var(--display); font-size: 3rem; font-weight: 800; font-stretch: 104%; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.plan-price span { font-family: var(--read); font-size: 1rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink-soft); }
+.plan-price span { font-family: var(--display); font-stretch: 100%; font-size: 1rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink-soft); }
 .plan--featured .plan-price span { color: var(--soft-paper); }
 .plan-desc { font-size: 1rem; color: var(--ink-soft); }
 .plan--featured .plan-desc { color: var(--soft-paper); }
