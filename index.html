@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <!--
-  APPLICATION MODE SWITCH
-  =======================
-  data-apply on <html> decides where applications are taken, in BOTH files.
-
-    data-apply="google"  Google Form. The in-page form is hidden but stays in
-                         the file, untouched and ready.
-    data-apply="web3"    The three step in-page form, posting to Web3Forms.
-
-  To switch, change the attribute in index.html AND privacy.html. Nothing else.
-  privacy.html describes a different processor in each mode, so the two must
-  always agree or the privacy page becomes wrong.
+  APPLICATION MODE
+  ================
+  Where applications go is decided by apply-mode.css, which both this page and
+  privacy.html link. That is the only file to edit, so the two pages cannot
+  disagree about which service handles the data.
 -->
-<html lang="en" data-apply="google">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -519,11 +513,8 @@ p { text-wrap: pretty; }
 .form-step-label { font-family: var(--display); font-size: 0.75rem; font-weight: 600; font-stretch: 84%; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 .progress { height: 3px; background: rgba(16,16,16,0.12); border-radius: var(--r-pill); overflow: hidden; margin-bottom: var(--s-400); }
 .progress i { display: block; height: 100%; background: var(--volt); border-radius: var(--r-pill); transform-origin: left; scale: 0.1429 1; transition-property: scale; transition-duration: 420ms; transition-timing-function: var(--ease-out); }
-/* application mode switch, see the comment at the top of the file */
+/* apply-mode.css decides which of these is shown */
 .apply-google { display: none; }
-html[data-apply="google"] #applyForm,
-html[data-apply="google"] #formDone { display: none; }
-html[data-apply="google"] .apply-google { display: block; }
 .apply-google h3 { font-size: 1.5rem; font-stretch: 106%; letter-spacing: 0.01em; margin-bottom: var(--s-200); }
 .apply-google p { color: var(--ink-soft); }
 .apply-google .btn { width: 100%; margin-top: var(--s-400); white-space: normal; text-align: center; }
@@ -740,6 +731,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
   .js .sheet-fill { scale: 1 1; }
 }
 </style>
+<link rel="stylesheet" href="apply-mode.css">
 </head>
 <body>
 
@@ -1711,9 +1703,10 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
 <script>
 (function () {
   "use strict";
-  if (document.documentElement.getAttribute("data-apply") !== "web3") return;
+  // apply-mode.css is the single source of truth for which mode is live, so
+  // read it from there rather than keeping a second copy of the answer.
   var form = document.getElementById("applyForm");
-  if (!form) return;
+  if (!form || getComputedStyle(form).display === "none") return;
 
   var FALLBACK = "https://docs.google.com/forms/d/e/1FAIpQLSfp8sDRlfeJSueQcIv-a7yMSvn82xwIOUcstBxTAEajFsXt2w/viewform";
   var steps   = Array.prototype.slice.call(form.querySelectorAll(".step"));

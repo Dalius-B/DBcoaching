@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <!--
-  APPLICATION MODE SWITCH
-  =======================
-  data-apply on <html> decides where applications are taken, in BOTH files.
-
-    data-apply="google"  Google Form. The in-page form is hidden but stays in
-                         the file, untouched and ready.
-    data-apply="web3"    The three step in-page form, posting to Web3Forms.
-
-  To switch, change the attribute in index.html AND privacy.html. Nothing else.
-  privacy.html describes a different processor in each mode, so the two must
-  always agree or the privacy page becomes wrong.
+  APPLICATION MODE
+  ================
+  Where applications go is decided by apply-mode.css, which both this page and
+  privacy.html link. That is the only file to edit, so the two pages cannot
+  disagree about which service handles the data.
 -->
-<html lang="en" data-apply="google">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -130,10 +124,6 @@ p { text-wrap: pretty; }
   text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: var(--s-200); }
 .panel ul { margin-top: 0; }
 
-/* application mode switch, see the comment at the top of the file */
-html[data-apply="google"] .when-web3 { display: none; }
-html[data-apply="web3"] .when-google { display: none; }
-
 .none li::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--ink-soft); }
 
 /* footer */
@@ -177,6 +167,7 @@ html[data-apply="web3"] .when-google { display: none; }
   *, *::before, *::after { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
 }
 </style>
+<link rel="stylesheet" href="apply-mode.css">
 </head>
 <body>
 
