@@ -22,14 +22,22 @@
    rule .doc li at (0,1,1). Written once, the rule would lose, and privacy.html
    would name both services at the same time.
 
+   WHAT IS ALREADY PROVEN
+   ----------------------
+   On 2 September 2026 a message posted straight to the Web3Forms API with the
+   access key from index.html arrived in the inbox. So the key is real and it
+   points at the right mailbox. The key is a public identifier, not a secret.
+
+   What that test did NOT cover is the page's own submit path, which has only
+   ever run against a stubbed endpoint. Those are different things.
+
    AFTER SWITCHING
    ---------------
    1. https://dalius-b.github.io/DBcoaching/#apply shows what you expect.
    2. privacy.html names one service, and the right one, under the heading
       "Who else handles it".
-   3. Send one real application and confirm it arrives. The Web3Forms access
-      key in index.html is a public identifier, not a secret, but nothing
-      proves it points at the right inbox until a message actually lands.
+   3. Send one application through the live form itself, all seven steps, and
+      confirm it arrives. This is the part still unproven.
    ========================================================================= */
 
 
