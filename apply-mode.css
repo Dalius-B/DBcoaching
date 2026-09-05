@@ -42,23 +42,23 @@
 
 
 /* ---------------------------------------------------------------------------
-   GOOGLE FORM  ·  ACTIVE
+   GOOGLE FORM  ·  INACTIVE
    Applications go to the Google Form. The in-page form stays in the page,
    hidden and inert, and privacy.html describes Google as the processor.
    --------------------------------------------------------------------------- */
 
+/*
 #applyForm,
 #formDone                { display: none; }
 .apply-google            { display: block; }
 .when-web3.when-web3     { display: none; }
+*/
 
 
 /* ---------------------------------------------------------------------------
-   IN-PAGE FORM  ·  INACTIVE
+   IN-PAGE FORM  ·  ACTIVE
    Applications go through the seven step form on the page, posting to
    Web3Forms, and privacy.html describes Web3Forms as the processor.
    --------------------------------------------------------------------------- */
 
-/*
 .when-google.when-google { display: none; }
-*/
