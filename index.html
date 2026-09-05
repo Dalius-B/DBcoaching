@@ -158,8 +158,6 @@ p { text-wrap: pretty; }
   color: var(--ink-soft);
 }
 .on-ink .label { color: var(--soft-paper); }
-.label::before { content: ""; width: 22px; height: 2px; background: var(--volt); flex: none; }
-.label--bare::before { content: none; }
 
 .chip {
   display: inline-flex; align-items: center; gap: var(--s-75);
@@ -175,12 +173,6 @@ p { text-wrap: pretty; }
 .on-ink .section-intro { color: var(--soft-paper); }
 
 /* lane markers — lifted from the floor striping in the training photos */
-.lane {
-  height: 3px; width: 100%;
-  background: repeating-linear-gradient(90deg, var(--ink) 0 26px, transparent 26px 52px);
-  opacity: 0.22;
-}
-.on-ink .lane { background: repeating-linear-gradient(90deg, var(--volt) 0 26px, transparent 26px 52px); opacity: 0.5; }
 
 /* ============================================================
    5. BUTTONS
@@ -326,7 +318,6 @@ p { text-wrap: pretty; }
    9. MISSION — word-by-word reveal
    ============================================================ */
 .mission { text-align: left; }
-.mission-rule { height: 4px; width: 88px; background: var(--volt); margin-bottom: var(--s-400); }
 .mission-copy {
   font-weight: 400; font-stretch: 100%;
   font-size: clamp(1.5rem, 4.4vw, 3.75rem); line-height: 1.16;
@@ -635,7 +626,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
 .finale .lede { margin-top: var(--s-300); color: var(--soft-paper); font-size: 1.25rem; max-width: 46ch; }
 
 
-.foot { background: var(--ink); color: var(--paper); padding-block: var(--s-500); }
+.foot { background: var(--ink); color: var(--paper); padding-block: var(--s-700) var(--s-500); }
 .foot-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-300); }
 .foot-links { display: flex; flex-wrap: wrap; gap: var(--s-300); }
 .foot-links a, .foot-ig {
@@ -830,12 +821,11 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
   <!-- ===================== MISSION ===================== -->
   <section class="section section--surface mission" aria-labelledby="mission-h">
     <div class="shell">
-      <div class="mission-rule reveal" aria-hidden="true"></div>
       <h2 class="sr-only" id="mission-h">The mission behind the coaching</h2>
       <p class="mission-copy" id="missionCopy"><span class="w">Nothing</span> <span class="w">about</span> <span class="w">this</span> <span class="w">was</span> <span class="w">talent.</span> <span class="w">I</span> <span class="w">built</span> <span class="w">it</span> <span class="w">slowly,</span> <span class="w">around</span> <span class="w">a</span> <span class="w">job,</span> <span class="w">a</span> <span class="w">life</span> <span class="w">and</span> <span class="w">a</span> <span class="w">lot</span> <span class="w">of</span> <span class="w">bad</span> <span class="w">weeks.</span> <span class="w hl">Every</span> <span class="w hl">part</span> <span class="w hl">of</span> <span class="w hl">what</span> <span class="w hl">got</span> <span class="w hl">me</span> <span class="w hl">here</span> <span class="w hl">is</span> <span class="w hl">what</span> <span class="w hl">you</span> <span class="w hl">start</span> <span class="w hl">with</span> <span class="w hl">on</span> <span class="w hl">day</span> <span class="w hl">one.</span></p>
       <div class="mission-sign reveal">
         <span class="rule" aria-hidden="true"></span>
-        <span class="label label--bare" style="color:var(--ink)">Dalius Butkus, coach</span>
+        <span class="label" style="color:var(--ink)">Dalius Butkus, coach</span>
       </div>
     </div>
   </section>
@@ -963,7 +953,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
       </div>
 
       <div class="track-alt reveal">
-        <p class="label label--bare" style="margin-bottom:var(--s-200)">Program only, no coaching</p>
+        <p class="label" style="margin-bottom:var(--s-200)">Program only, no coaching</p>
         <div class="track-alt-steps">
           <p><strong>Fill in the form</strong>Five minutes. Your goals, your schedule, your training history.</p>
           <p><strong>Receive your program</strong>Training program and nutrition blueprint, built from your answers, within 72 hours.</p>
@@ -1480,7 +1470,6 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
 
 <footer class="foot on-ink">
   <div class="shell">
-    <div class="lane" aria-hidden="true" style="margin-bottom: var(--s-500); opacity:.5"></div>
     <div class="foot-top">
       <a class="wordmark" href="#top">DB<i>/</i>Coaching</a>
       <nav class="foot-links" aria-label="Footer">
