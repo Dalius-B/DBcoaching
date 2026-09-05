@@ -97,6 +97,7 @@ p { text-wrap: pretty; }
   text-transform: uppercase; letter-spacing: 0.18em; color: var(--soft-paper);
 }
 .label::before { content: ""; width: 22px; height: 2px; background: var(--volt); flex: none; }
+.label--bare::before { content: none; }
 .head h1 { font-size: clamp(2.25rem, 6vw, 4.5rem); margin-top: var(--s-300); }
 .head .deck { font-size: 1.25rem; color: var(--soft-paper); max-width: 54ch; margin-top: var(--s-300); }
 .stamp { margin-top: var(--s-400); padding-top: var(--s-300); border-top: 1px solid var(--hair-paper);
@@ -184,7 +185,6 @@ p { text-wrap: pretty; }
 
   <div class="head on-ink">
     <div class="shell">
-      <p class="label">Privacy</p>
       <h1>What happens to what you tell me.</h1>
       <p class="deck">There is no clever version of this page. You fill in an application, it reaches Dalius, and nothing else happens to it.</p>
       <p class="stamp">Last updated 1 September 2026</p>
