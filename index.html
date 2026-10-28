@@ -10,8 +10,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DB Coaching — Online Personal Training with Dalius Butkus</title>
-<meta name="description" content="Online coaching for people who keep starting over. A training program, a nutrition blueprint and a weekly check-in that a real coach actually reads. Program from $79 AUD, full coaching from $200 AUD a month.">
+<title>DB Coaching | Online Training</title>
+<meta name="description" content="Online coaching for people who keep starting over. A training program, nutrition guidelines and a weekly check-in that a real coach actually reads. Program from $79 AUD, full coaching from $200 AUD a month.">
 <link rel="canonical" href="https://dalius-b.github.io/DBcoaching/">
 <meta name="theme-color" content="#101010">
 
@@ -193,6 +193,11 @@ p { text-wrap: pretty; }
 .btn-ghost:hover { border-color: var(--ink); background: rgba(16,16,16,0.05); }
 .on-ink .btn-ghost { border-color: var(--hair-paper); color: var(--paper); }
 .on-ink .btn-ghost:hover { border-color: var(--paper); background: rgba(232,232,227,0.08); }
+/* .form-card keeps a light surface even inside .on-ink sections (the apply
+   form), so its ghost button needs the light-mode border/text back, or it
+   nearly vanishes against the card. */
+.on-ink .form-card .btn-ghost { border-color: var(--hair-ink); color: var(--ink); }
+.on-ink .form-card .btn-ghost:hover { border-color: var(--ink); background: rgba(16,16,16,0.05); }
 .btn-sm { min-height: 44px; font-size: 0.875rem; padding: var(--s-75) var(--s-200); }
 
 /* ============================================================
@@ -373,7 +378,7 @@ p { text-wrap: pretty; }
 .method-media::after { content: ""; position: absolute; inset: 0; outline: 1px solid rgba(16,16,16,0.10); outline-offset: -1px; border-radius: var(--r-lg); }
 
 /* ============================================================
-   12. SPLIT SHEET (the 12-week line)
+   12. SPLIT SHEET (the 8-week line)
    ============================================================ */
 .sheet { margin-top: var(--s-600); position: relative; }
 .sheet-rail { position: absolute; left: 7px; top: 12px; bottom: 12px; width: 2px; background: rgba(16,16,16,0.14); }
@@ -915,7 +920,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
   <section class="section section--surface" id="how" aria-labelledby="how-h">
     <div class="shell">
       <p class="label reveal">How it works</p>
-      <h2 class="h2 section-head reveal" id="how-h" style="--i:1">Twelve weeks, on the line.</h2>
+      <h2 class="h2 section-head reveal" id="how-h" style="--i:1">Eight weeks, on the line.</h2>
       <p class="section-intro lede reveal" style="--i:2">Full coaching runs on a fixed rhythm, so you always know what happens next and when.</p>
 
       <div class="sheet" id="sheet">
@@ -934,7 +939,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
         <div class="split reveal">
           <span class="dot" aria-hidden="true"></span>
           <span class="split-w">Week 0</span>
-          <div class="split-b"><h3>Your build</h3><p>I write your training program and nutrition blueprint from your answers. Both are with you within 72 hours.</p></div>
+          <div class="split-b"><h3>Your build</h3><p>I write your training program and nutrition guidelines from your answers. Both are with you within 72 hours.</p></div>
         </div>
         <div class="split is-key reveal">
           <span class="dot" aria-hidden="true"></span>
@@ -946,23 +951,18 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
           <span class="split-w">Week 4</span>
           <div class="split-b"><h3>First rebuild</h3><p>The program is adjusted around what your logged sessions actually show, not around what the plan assumed.</p></div>
         </div>
-        <div class="split reveal">
-          <span class="dot" aria-hidden="true"></span>
-          <span class="split-w">Week 8</span>
-          <div class="split-b"><h3>Second rebuild</h3><p>Same again. Every four weeks the program moves with you rather than staying where it started.</p></div>
-        </div>
         <div class="split is-key reveal">
           <span class="dot" aria-hidden="true"></span>
-          <span class="split-w">Week 12</span>
-          <div class="split-b"><h3>Look back</h3><p>Twelve weeks of tracked weight and reps for every session, so the progress is on paper and not a feeling.</p></div>
+          <span class="split-w">Week 8</span>
+          <div class="split-b"><h3>Look back</h3><p>Eight weeks of tracked weight and reps for every session, so the progress is on paper and not a feeling.</p></div>
         </div>
       </div>
 
       <div class="track-alt reveal">
-        <p class="label" style="margin-bottom:var(--s-200)">Program only, no coaching</p>
+        <p class="label" style="margin-bottom:var(--s-200)">8-week program, no coaching</p>
         <div class="track-alt-steps">
           <p><strong>Fill in the form</strong>Five minutes. Your goals, your schedule, your training history.</p>
-          <p><strong>Receive your program</strong>Training program and nutrition blueprint, built from your answers, within 72 hours.</p>
+          <p><strong>Receive your program</strong>Training program and nutrition guidelines, built from your answers, within 72 hours.</p>
           <p><strong>Start training</strong>Follow the program, track your progress, use the exercise video library whenever you need it.</p>
         </div>
       </div>
@@ -995,7 +995,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
           </article>
           <article class="inc-item reveal" style="--i:2">
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h7.5L18.5 8v12a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 20V5A1.5 1.5 0 0 1 6 3.5Z"/><path d="M13.5 3.5V8h5"/><path d="M8 13h7M8 16.5h4.5"/></svg></span>
-            <h3>Nutrition blueprint</h3>
+            <h3>Nutrition guidelines</h3>
             <p>A practical framework that explains the reason behind every decision. Not a meal plan, a system that survives a normal week.</p>
           </article>
           <article class="inc-item reveal" style="--i:3">
@@ -1011,7 +1011,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
           <article class="inc-item reveal" style="--i:5">
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 20.5h17"/><path d="M7 20.5v-5M12 20.5v-9M17 20.5v-13"/></svg></span>
             <h3>Progress tracking</h3>
-            <p>Weight and reps logged every session across twelve weeks, so you can see exactly how much stronger you have got.</p>
+            <p>Weight and reps logged every session across eight weeks, so you can see exactly how much stronger you have got.</p>
           </article>
         </div>
       </div>
@@ -1033,9 +1033,9 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
           <p class="plan-desc">For people who are self motivated and just need a clear, structured plan to follow. No coaching, only the tools.</p>
           <ul>
             <li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Personalised training program</li>
-            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Nutrition blueprint</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Nutrition guidelines</li>
             <li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Exercise video library access</li>
-            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Progress tracking sheet</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>Progress tracking system</li>
           </ul>
           <div class="plan-foot">
             <a class="btn btn-ghost" href="#apply" data-plan="program">Get the program</a>
@@ -1115,7 +1115,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
 
         <div class="qa">
           <h3><button class="qa-btn" type="button" aria-expanded="false" aria-controls="qa1">What happens in the first week?<span class="qa-sign" aria-hidden="true"></span></button></h3>
-          <div class="qa-panel" id="qa1" role="region"><div class="qa-panel-in">You fill in a short form, we do a 20 minute discovery call, and I write your training program and nutrition blueprint from your answers. Both are with you within 72 hours. Training and the weekly check-in start from there.</div></div>
+          <div class="qa-panel" id="qa1" role="region"><div class="qa-panel-in">You fill in a short form, we do a 20 minute discovery call, and I write your training program and nutrition guidelines from your answers. Both are with you within 72 hours. Training and the weekly check-in start from there.</div></div>
         </div>
 
         <div class="qa">
@@ -1130,7 +1130,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
 
         <div class="qa">
           <h3><button class="qa-btn" type="button" aria-expanded="false" aria-controls="qa4">How is the nutrition side different from a meal plan?<span class="qa-sign" aria-hidden="true"></span></button></h3>
-          <div class="qa-panel" id="qa4" role="region"><div class="qa-panel-in">A meal plan tells you what to eat and falls apart the first time real life gets in the way. The blueprint is a framework built around what you already eat, with no banned foods and no calorie obsession, and it explains the reason behind every decision so you can make the call yourself.</div></div>
+          <div class="qa-panel" id="qa4" role="region"><div class="qa-panel-in">A meal plan tells you what to eat and falls apart the first time real life gets in the way. The guidelines are a framework built around what you already eat, with no banned foods and no calorie obsession, and they explain the reason behind every decision so you can make the call yourself.</div></div>
         </div>
 
         <div class="qa">
@@ -1188,9 +1188,9 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
           <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
 
           <div class="form-head">
-            <span class="form-step-label" id="stepLabel">Step 1 of 7 &middot; About you</span>
+            <span class="form-step-label" id="stepLabel">Step 1 of 8 &middot; About you</span>
           </div>
-          <div class="progress" aria-hidden="true"><i id="progressBar" style="scale:0.1429 1"></i></div>
+          <div class="progress" aria-hidden="true"><i id="progressBar" style="scale:0.125 1"></i></div>
 
           <fieldset class="step" data-step="1">
             <legend>About you</legend>
@@ -1207,12 +1207,20 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
             <div class="field" role="group" aria-labelledby="lbl-option">
               <span class="legend-inline" id="lbl-option">Which option are you interested in</span>
               <div class="plan-pick">
-                <label class="opt"><input type="radio" name="Which option" value="Full coaching — program plus weekly check-ins and direct coach access" required>
+                <label class="opt"><input type="radio" name="Which option" value="Full coaching — program plus weekly check-ins and direct coach access" required checked>
                   <span><b>Full coaching</b><em>$200 AUD / month</em></span></label>
-                <label class="opt"><input type="radio" name="Which option" value="Program only — training plan and nutrition blueprint">
+                <label class="opt"><input type="radio" name="Which option" value="Program only — training plan and nutrition guidelines">
                   <span><b>Program only</b><em>$79 AUD one time</em></span></label>
               </div>
               <p class="err" id="e-option" aria-live="polite"></p>
+            </div>
+            <div class="field" role="group" aria-labelledby="lbl-sex">
+              <span class="legend-inline" id="lbl-sex">Sex</span>
+            <div class="chips" role="radiogroup" aria-labelledby="lbl-sex">
+              <label class="chip-opt"><input type="radio" name="Sex" value="Male" required><span>Male</span></label>
+              <label class="chip-opt"><input type="radio" name="Sex" value="Female"><span>Female</span></label>
+            </div>
+              <p class="err" id="e-sex" aria-live="polite"></p>
             </div>
             <div class="field-row">
             <div class="field">
@@ -1237,7 +1245,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
             <legend>Your goal</legend>
             <div class="field">
               <label for="f-goal">Describe your goal in your own words</label>
-<textarea id="f-goal" name="Your goal" required placeholder="The honest version is the useful one."></textarea>
+<textarea id="f-goal" name="Your goal" required></textarea>
               <p class="err" id="e-f-goal" aria-live="polite"></p>
             </div>
             <div class="field">
@@ -1267,13 +1275,13 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
               <p class="err" id="e-followedaprogram" aria-live="polite"></p>
             </div>
             <div class="field">
-              <label for="f-worked">What has worked for you in the past</label>
-<textarea id="f-worked" name="What has worked" required></textarea>
+              <label for="f-worked">If so, what did you like about the program <span class="hint">(optional)</span></label>
+<textarea id="f-worked" name="What has worked"></textarea>
               <p class="err" id="e-f-worked" aria-live="polite"></p>
             </div>
             <div class="field">
-              <label for="f-notworked">What has not worked for you</label>
-<textarea id="f-notworked" name="What has not worked" required></textarea>
+              <label for="f-notworked">What did you not like about it <span class="hint">(optional)</span></label>
+<textarea id="f-notworked" name="What has not worked"></textarea>
               <p class="err" id="e-f-notworked" aria-live="polite"></p>
             </div>
           </fieldset>
@@ -1337,7 +1345,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
           </fieldset>
 
           <fieldset class="step" data-step="6" hidden>
-            <legend>Your life and your food</legend>
+            <legend>Your life</legend>
             <div class="field">
               <label for="f-job">What is your job</label>
 <input id="f-job" name="Job" type="text" required>
@@ -1382,10 +1390,52 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
 <input id="f-steps" name="Daily steps" type="text" placeholder="Skip if you do not track them">
               <p class="err" id="e-f-steps" aria-live="polite"></p>
             </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="7" hidden>
+            <legend>Your nutrition</legend>
             <div class="field">
               <label for="f-diet">Any dietary restrictions</label>
 <input id="f-diet" name="Dietary restrictions" type="text" required placeholder="Write none if there are none.">
               <p class="err" id="e-f-diet" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-typicalday">Tell me what you typically eat in a day</label>
+<textarea id="f-typicalday" name="Typical eating day" required placeholder="E.g. breakfast, lunch, dinner, snacks — how much, when, and what usually ends up on the plate."></textarea>
+              <p class="err" id="e-f-typicalday" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-mealsperday">How many times a day do you eat</label>
+<select id="f-mealsperday" name="Meals per day" required>
+                <option value="">Choose one</option>
+                <option>1-2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5 or more</option>
+              </select>
+              <p class="err" id="e-f-mealsperday" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-eatingout">How often do you eat out / order takeaway</label>
+<select id="f-eatingout" name="Eating out or takeaway" required>
+                <option value="">Choose one</option>
+                <option>Almost never</option>
+                <option>1-2 times a week</option>
+                <option>3-5 times a week</option>
+                <option>Almost every day</option>
+              </select>
+              <p class="err" id="e-f-eatingout" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-alcohol">How often do you drink alcohol</label>
+<select id="f-alcohol" name="Alcohol" required>
+                <option value="">Choose one</option>
+                <option>I don't drink</option>
+                <option>Rarely (a few times a month)</option>
+                <option>1-2 times a week</option>
+                <option>3 or more times a week</option>
+              </select>
+              <p class="err" id="e-f-alcohol" aria-live="polite"></p>
             </div>
             <div class="field" role="group" aria-labelledby="lbl-nutritionstruggle">
               <span class="legend-inline" id="lbl-nutritionstruggle">What is your biggest struggle with nutrition <span class="hint">(tick all that apply)</span></span>
@@ -1402,7 +1452,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
             </div>
           </fieldset>
 
-          <fieldset class="step" data-step="7" hidden>
+          <fieldset class="step" data-step="8" hidden>
             <legend>Working together</legend>
             <div class="field">
               <label for="f-expect">What do you expect from me as your coach</label>
@@ -1443,7 +1493,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
             <div class="field">
               <label class="consent" for="f-consent">
                 <input id="f-consent" name="Consent" type="checkbox" value="yes" required>
-                <span>I am happy for Dalius to contact me about this application, and to hold what I have written here, including the health details above, while we are in touch.</span>
+                <span>I agree to be contacted about this application and for my information to be held, including the health details above.</span>
               </label>
               <p class="err" id="e-consent" aria-live="polite"></p>
               <p class="fine"><a href="privacy.html">What happens to what you send</a></p>
@@ -1534,7 +1584,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "What happens in the first week?", "acceptedAnswer": { "@type": "Answer", "text": "You fill in a short form, we do a 20 minute discovery call, and your training program and nutrition blueprint are written from your answers and delivered within 72 hours." } },
+        { "@type": "Question", "name": "What happens in the first week?", "acceptedAnswer": { "@type": "Answer", "text": "You fill in a short form, we do a 20 minute discovery call, and your training program and nutrition guidelines are written from your answers and delivered within 72 hours." } },
         { "@type": "Question", "name": "Do I need a particular gym or equipment?", "acceptedAnswer": { "@type": "Answer", "text": "The program is built around the gym you already train in and the days you actually have." } },
         { "@type": "Question", "name": "How quickly do you reply?", "acceptedAnswer": { "@type": "Answer", "text": "Weekly check-ins get a personalised response within 72 hours. Direct messages are answered within 24 hours." } },
         { "@type": "Question", "name": "How do payments work?", "acceptedAnswer": { "@type": "Answer", "text": "Program only is a one time 79 AUD. Full coaching is 200 AUD per month. Payment is handled by Stripe, by card, Apple Pay or BECS direct debit." } }
@@ -1710,7 +1760,7 @@ html:not(.js) .progress, html:not(.js) .form-step-label { display: none; }
   var keyEl   = document.getElementById("accessKey");
   var reduce  = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var TITLES  = ["About you", "Your goal", "Training history", "Your schedule",
-                 "Injuries and health", "Life and food", "Working together"];
+                 "Injuries and health", "Your life", "Your nutrition", "Working together"];
   var current = 0;
   var openedAt = Date.now();
 
